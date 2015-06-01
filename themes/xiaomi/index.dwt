@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+
+<script src="themes/xiaomi/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="themes/xiaomi/css/index.min.css?2014050501" />
+
+<script type="text/javascript">
+/*<![CDATA[*/
+var isCategoryToggled = "toggled";
+var isSekillOpen = 1;
+var isCommentOpen = 1;
+/*]]>*/
+</script>
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<script>
+/*css*/
+if (window.screen.width < 1280)
+{	
+	document.write("<link rel='stylesheet' type='text/css' href='themes/xiaomi/css/980base.css'>");
+	document.write("<link rel='stylesheet' type='text/css' href='themes/xiaomi/css/980index.css'>");
+}
+
+</script>
+<!-- Main Content START -->
+<div class="container">
+  <div class="row">
+    <div class="col col-16 offset4">
+      <div class="home-slider">
+        <div id="J_homeSlider" class="xm-slider">
+		{foreach from=get_flash_xml() item=playerdb name=get_flash_xml}
+          <div class="slide"> <a href="{$playerdb.url}" target="_blank"><img src="{$playerdb.src}" /></a> </div>
+		 {/foreach} 
+         
+        </div>
+      </div>
+      <div class="home-hd-show clearfix">
+	  {foreach from=get_advlist_by_id(1) item=ad name=index_image}
+        <div class="hd-show-item {if $smarty.foreach.index_image.iteration eq 1}hd-show-item-first{/if}"> <a href="{$ad.url}"><img alt="3" src="{$ad.image}" /></a> </div>
+	  {/foreach}	
+     
+      </div>
+    </div>
+  </div>
+  <div class="home-star-goods">
+    <div class="xm-plain-box J_starGoodsCarousel">
+      <div class="box-hd">
+        <h3 class="title">小米明星单品</h3>
+        <div class="more">
+          <div class="xm-recommend-page clearfix"> <a class="page-btn-prev page-btn-prev-disabled iconfont J_carouselPrev" href="javascript: void(0);">&#xe604;</a><a class="page-btn-next iconfont J_carouselNext" href="javascript: void(0);">&#xe605;</a> </div>
+        </div>
+      </div>
+      <div class="box-bd">
+        <div class="xm-star-goods-list-wrap J_carouselWrap">
+          <div class="xm-star-goods-list clearfix J_carouselList">
+		  <!--{foreach from=get_cat_best_goods_4(1) item=goods name=new_goods}-->
+            <div class="xm-star-goods-item">
+              <div class="item-content"> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.short_name|escape:html}" /></a> </span> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-desc">{$goods.brief|escape:html}</span> </div>
+            </div>
+			<!--{/foreach}-->
+			
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .home-star-goods END -->
+  <div class="home-new-goods">
+    <div class="xm-plain-box">
+      <div class="box-hd">
+        <h3 class="title">新品上架</h3>
+        <div class="more"> <a class="more-link" href="search.php?intro=new">更多<i class="iconfont">&#xe605;</i></a> </div>
+      </div>
+      <div class="box-bd">
+        <div class="row">
+          <div class="col col-15">
+            <div class="brick-list">
+              <div class="brick-item brick-item-l">
+                <div class="item">
+				{foreach from=get_advlist_by_id(2) item=ad name=index_image}
+	  {if $smarty.foreach.index_image.iteration eq 1}
+                  <div class="item-content"> <a href="{$ad.url}"> <span class="item-thumb"> <img src="{$ad.image}" alt="{$ad.name}" /> </span> </a> </div>
+				  {/if}	
+	  {/foreach}
+                </div>
+              </div>
+              <div class="brick-item brick-item-m">
+                <div class="item">
+				<!--{foreach from=get_cat_new_goods(0) item=goods name=new_goods}-->
+				{if $smarty.foreach.new_goods.iteration eq 1}
+                  <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:220px" /></a> </span> </div>
+				{/if}	
+		   		<!--{/foreach}-->
+		        </div>
+              </div>
+              <div class="brick-item brick-item-m">
+                <div class="brick-item brick-item-s">
+                  <div class="item">
+				  <!--{foreach from=get_cat_new_goods(0) item=goods name=new_goods}-->
+				{if $smarty.foreach.new_goods.iteration eq 2}
+                    <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:135px" /></a> </span> </div>
+					{/if}	
+		   <!--{/foreach}-->
+                  </div>
+                </div>
+                <div class="brick-item brick-item-s">
+                  <div class="item">
+				  <!--{foreach from=get_cat_new_goods(0) item=goods name=new_goods}-->
+				{if $smarty.foreach.new_goods.iteration eq 3}
+                    <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:135px" /></a> </span> </div>
+					{/if}	
+		   <!--{/foreach}-->
+                  </div>
+                </div>
+              </div>
+              <div class="brick-item brick-item-m">
+                <div class="item">
+				<!--{foreach from=get_cat_new_goods(0) item=goods name=new_goods}-->
+				{if $smarty.foreach.new_goods.iteration eq 4}
+                  <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:220px" /></a> </span> </div>
+				{/if}	
+		   		<!--{/foreach}-->
+		        </div>
+              </div>
+              <div class="brick-item brick-item-m">
+                <div class="item">
+				<!--{foreach from=get_cat_new_goods(0) item=goods name=new_goods}-->
+				{if $smarty.foreach.new_goods.iteration eq 5}
+                  <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:220px" /></a> </span> </div>
+				{/if}	
+		   		<!--{/foreach}-->
+		        </div>
+              </div>
+              <div class="brick-item brick-item-m">
+                <div class="item">
+				<!--{foreach from=get_cat_new_goods(0) item=goods name=new_goods}-->
+				{if $smarty.foreach.new_goods.iteration eq 6}
+                  <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:220px" /></a> </span> </div>
+				{/if}	
+		   		<!--{/foreach}-->
+		        </div>
+              </div>
+              <div class="brick-item brick-item-m">
+                <div class="item">
+				<!--{foreach from=get_cat_new_goods(0) item=goods name=new_goods}-->
+				{if $smarty.foreach.new_goods.iteration eq 7}
+                  <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:220px" /></a> </span> </div>
+				{/if}	
+		   		<!--{/foreach}-->
+		        </div>
+              </div>
+              <div class="brick-item brick-item-m">
+                <div class="item">
+				<!--{foreach from=get_cat_new_goods(0) item=goods name=new_goods}-->
+				{if $smarty.foreach.new_goods.iteration eq 8}
+                  <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:220px" /></a> </span> </div>
+				{/if}	
+		   		<!--{/foreach}-->
+		        </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-5">
+            <div class="channel-section">
+              <ul class="channel-list">
+              
+				<!--{foreach from=get_cat_promote_goods_5(0) item=goods name=new_goods}-->
+                <li {if $smarty.foreach.new_goods.last}style="border-bottom:0px"{/if}><a href="{$goods.url}" target="_blank"><span class="item-info"><span class="item-title">{$goods.short_name|escape:html}</span><span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--> <del>{$goods.market_price}</del></span><span class="item-thumb"><img src="{$goods.thumb}" alt=""></span><span class="item-flag"><span class="icon-flag">特价商品</span></span></span></a></li>
+				<!--{/foreach}-->  
+				  
+               
+              </ul>
+            </div>
+            
+            <div class="news-section">
+              <h3>新闻公告</h3>
+              <ul>
+                <!-- TemplateBeginEditable name="文章-新闻公告" -->
+<!-- #BeginLibraryItem "/library/cat_articles.lbi" -->
+
+
+<!--{foreach from=$articles item=article_item name=articles}-->
+<li {if $smarty.foreach.articles.iteration eq 1}class="first"{/if}><a href="{$article_item.url}"><span class="dot">&middot;</span>{$article_item.short_title}<i class="iconfont">&#xe605;</i></a></li>
+<!--{/foreach}-->
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .home-new-goods END -->
+  <div class="home-hot-goods">
+    <div class="xm-plain-box">
+      <div class="box-hd">
+        <h3 class="title">大家都喜欢</h3>
+      </div>
+      <div class="box-bd">
+        <div class="row">
+          <div class="col col-15">
+            <div class="brick-list">
+              <div class="brick-item brick-item-l">
+                <div class="item">
+				{foreach from=get_advlist_by_id(2) item=ad name=index_image}
+	  {if $smarty.foreach.index_image.iteration eq 1}
+                  <div class="item-content"> <a href="{$ad.url}"> <span class="item-thumb"> <img src="{$ad.image}" alt="{$ad.name}" /> </span> </a> </div>
+				  {/if}	
+	  {/foreach}
+                </div>
+              </div>
+              <div class="brick-item brick-item-m">
+                <div class="item">
+				<!--{foreach from=get_cat_best_goods_4(0) item=goods name=new_goods}-->
+				{if $smarty.foreach.new_goods.iteration eq 1}
+                  <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:220px" /></a> </span> </div>
+				{/if}	
+		   		<!--{/foreach}-->
+		        </div>
+              </div>
+              <div class="brick-item brick-item-m">
+                <div class="item">
+				<!--{foreach from=get_cat_best_goods_4(0) item=goods name=new_goods}-->
+				{if $smarty.foreach.new_goods.iteration eq 2}
+                  <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:220px" /></a> </span> </div>
+				  {/if}	
+		   		<!--{/foreach}-->
+                </div>
+              </div>
+              <div class="brick-item brick-item-m">
+                <div class="item">
+				<!--{foreach from=get_cat_best_goods_4(0) item=goods name=new_goods}-->
+				{if $smarty.foreach.new_goods.iteration eq 3}
+                  <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:220px" /></a> </span> </div>
+				  {/if}	
+		   		<!--{/foreach}-->
+                </div>
+              </div>
+              <div class="brick-item brick-item-m">
+                <div class="item">
+				<!--{foreach from=get_cat_best_goods_4(0) item=goods name=new_goods}-->
+				{if $smarty.foreach.new_goods.iteration eq 4}
+                  <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:220px" /></a> </span> </div>
+				  {/if}	
+		   		<!--{/foreach}-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-5">
+            <div class="board-section">
+              <h3><span>HOT</span>热销商品排行</h3>
+              <ul class="board-list">
+			  <!--{foreach from=get_cat_hot_goods_5(0) item=goods name=new_goods}-->
+                <li {if $smarty.foreach.new_goods.iteration < 4}class="top"{/if}> <span class="item-info"> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" style="width:70px" /></a> </span> <span class="item-num">{$smarty.foreach.new_goods.iteration}</span> </li>
+			  <!--{/foreach}-->	
+             
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .home-hot-goods END -->
+  <div class="home-commented-goods">
+    <div class="xm-plain-box">
+      <div class="box-hd">
+        <h3 class="title">热评产品</h3>
+      </div>
+      <div class="box-bd">
+        <div class="xm-commented-goods-list-wrap">
+          <div class="xm-commented-goods-list clearfix">
+		  <!--{foreach name=message_lists from=get_new_comment_8(0) key=key item=msg}-->
+		{if $smarty.foreach.message_lists.iteration < 5} 
+            <div class="xm-commented-goods-item J_commentedGoods">
+              <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="goods.php?id={$msg.goods_id}">{$msg.goods_name}</a></span> <span class="item-meta"><span class="icon-stat icon-stat-5"></span></span> <span class="item-price">{$msg.shop_price}</span> </span> <span class="item-thumb"> <a href="goods.php?id={$msg.goods_id}"><img src="{$msg.goods_thumb}" style="width:220px; height:220px" alt="{$msg.goods_name}" /></a> </span> <span class="item-comment">{$msg.content|truncate:20:"...":true}</span> </div>
+            </div>
+		{/if}
+		  <!--{/foreach}--> 	
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .home-commented-goods END -->
+  
+  <!-- TemplateBeginEditable name="商品-分类" -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+
+<div class="home-commented-goods home-miui-goods">
+    <div class="xm-plain-box">
+      <div class="box-hd">
+        <h3 class="title">{$goods_cat.name|escape:html}</h3>
+        <div class="more"> <a class="more-link" href="{$goods_cat.url}" target="_blank">更多<i class="iconfont">&#xe605;</i></a> </div>
+      </div>
+      <div class="box-bd">
+        <div class="xm-commented-goods-list-wrap">
+          <div class="xm-commented-goods-list clearfix">
+		  <!--{foreach from=$cat_goods item=goods}-->
+            <div class="xm-commented-goods-item">
+              <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}" target="_blank">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}" target="_blank"><img src="{$goods.thumb}" alt=""  /></a> </span> </div>
+            </div>
+		<!--{/foreach}-->	
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+
+<div class="home-commented-goods home-miui-goods">
+    <div class="xm-plain-box">
+      <div class="box-hd">
+        <h3 class="title">{$goods_cat.name|escape:html}</h3>
+        <div class="more"> <a class="more-link" href="{$goods_cat.url}" target="_blank">更多<i class="iconfont">&#xe605;</i></a> </div>
+      </div>
+      <div class="box-bd">
+        <div class="xm-commented-goods-list-wrap">
+          <div class="xm-commented-goods-list clearfix">
+		  <!--{foreach from=$cat_goods item=goods}-->
+            <div class="xm-commented-goods-item">
+              <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}" target="_blank">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}" target="_blank"><img src="{$goods.thumb}" alt=""  /></a> </span> </div>
+            </div>
+		<!--{/foreach}-->	
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+  
+  <!-- .home-miui-goods END -->
+</div>
+<!-- Main Content END -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- .site-footer END -->
+
+
+<script type="text/javascript" src="themes/xiaomi/js/index.min.js?2014042901"></script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="telephone=no" name="format-detection">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>{$page_title}触屏版</title>
+<link href="themes/default/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="themes/default/css/head.css" rel="stylesheet" type="text/css" />
+<link href="themes/default/css/foot.css" rel="stylesheet" type="text/css" />
+<link href="themes/default/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="themes/default/css/xmapp.css"/>
+<script src="themes/default/js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="themes/default/js/jquery.autocomplete.js" type="text/javascript"></script>
+<script src="themes/default/js/jquery.touchScroll.js" type="text/javascript"></script>
+<script src="themes/default/js/fbi.js" type="text/javascript"></script>
+<style>
+.pro_cont img{ width:100%;height:auto;line-height:1.8em;font-size:12px;color:#5a5a5a}
+</style>
+</head>
+<body>
+<div class="search">
+  <div class="header_03">
+    <div class="back"> <a href="index.php" class="arrow"></a> </div>
+    <div style="" class="tit">
+      <h3>{$lang.article_list}</h3>
+    </div>
+    <div class="nav">
+      <ul>
+        <li class="cart"> <a href="flow.php">购物车</a> <span style="display:none" id="ShoppingCartNum"></span> </li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div class="project">
+      <h2>{$lang.article_list}</h2>
+    </div>
+    <div class="prodesc">
+      <div class="pro_cont clearfix" style="background-color:#FFFFFF"> 
+	  <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+      <tr>
+        <th bgcolor="#ffffff">{$lang.article_title}</th>
+      
+          <th bgcolor="#ffffff">{$lang.article_add_time}</th>
+        </tr>
+      <!-- {foreach from=$artciles_list item=article} -->
+      <tr>
+        <td bgcolor="#ffffff"><a href="{$article.url}" title="{$article.title|escape:html}" class="f6">{$article.short_title}</a></td>
+       
+          <td bgcolor="#ffffff" align="center">{$article.add_time}</td>
+        </tr>
+      <!-- {/foreach} -->
+    </table>
+	  
+	   </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+﻿
+<!--页面底部-->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!--页面底部-->
+</body>
+</html>

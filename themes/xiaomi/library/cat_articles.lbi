@@ -1,0 +1,5 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!--{foreach from=$articles item=article_item name=articles}-->
+<li {if $smarty.foreach.articles.iteration eq 1}class="first"{/if}><a href="{$article_item.url}"><span class="dot">&middot;</span>{$article_item.short_title}<i class="iconfont">&#xe605;</i></a></li>
+<!--{/foreach}-->

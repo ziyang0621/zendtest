@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<script src="themes/xiaomi/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="themes/xiaomi/css/goods-category.min.css?ver=2013120301" />
+{insert_scripts files='common.js,user.js,utils.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<script>
+/*css*/
+if (window.screen.width < 1280)
+{	
+	document.write("<link rel='stylesheet' type='text/css' href='themes/xiaomi/css/980base.css'>");
+	document.write("<link rel='stylesheet' type='text/css' href='themes/xiaomi/css/980category.css'>");
+}
+
+</script>
+<div class="container breadcrumbs"> <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+<!-- .breadcrumbs END -->
+<div class="container">
+  <div class="xm-line-box filter-box">
+    <div class="box-hd">
+      <h3 class="title"><!-- {if $intromode eq 'best'} -->
+         <span>{$lang.best_goods}</span>
+         <!-- {elseif $intromode eq 'new'} -->
+         <span>{$lang.new_goods}</span>
+         <!-- {elseif $intromode eq 'hot'} -->
+         <span>{$lang.hot_goods}</span>
+         <!-- {elseif $intromode eq 'promotion'} -->
+         <span>{$lang.promotion_goods}</span>
+         <!-- {else} -->
+         <span>{$lang.search_result}</span>
+         <!-- {/if} --></h3>
+    </div>
+<script language="javascript">
+function search_order(sort){
+	listform.sort.value = sort;
+	listform.order.value = {if $pager.search.order == 'ASC'}'DESC'{else}'ASC'{/if};
+	listform.submit();
+}
+
+</script>
+        <form action="search.php" method="post" class="sort" name="listform" id="form">
+         
+              <input type="hidden" name="page" value="{$pager.page}" />
+              <input type="hidden" name="display" value="{$pager.display}" id="display" />
+              <!--{foreach from=$pager.search key=key item=item}-->
+
+                {if $key eq 'keywords'}
+                  <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+                {else}
+                  <input type="hidden" name="{$key}" value="{$item}" />
+                {/if}
+
+              <!--{/foreach}-->
+            </form>
+    
+  </div>
+  <div class="xm-line-box goods-list-box">
+    <div class="box-hd">
+      <div class="filter-lists">
+        <dl class="xm-filter-list xm-filter-list-first category-filter-list clearfix">
+          <dd>
+            <ul id="typeOrder" class="clearfix">
+              <li class="{if $pager.search.sort == 'sell_number'}current{/if} first"><a href="javascript:search_order('sell_number');" rel="nofollow">销量</a></li>
+              <li class="{if $pager.search.sort == 'goods_id'}current{/if}"><a href="javascript:search_order('goods_id');" rel="nofollow">最新</a></li>
+              <li class="{if $pager.search.sort == 'shop_price'}current{/if}"><a href="javascript:search_order('shop_price');" rel="nofollow">价格</a></li>
+             
+              <li class="{if $pager.search.sort == 'click_count'}current{/if}"><a href="javascript:search_order('click_count');" rel="nofollow">关注度</a></li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      <div class="more">
+        
+      </div>
+    </div>
+	
+	{if $goods_list}
+    <div class="box-bd">
+      <div class="goods-list-section">
+        <div class="xm-goods-list-wrap xm-goods-list-wrap-col20">
+          <ul class="xm-goods-list clearfix">
+		  <!--{foreach from=$goods_list item=goods}-->
+    <!-- {if $goods.goods_id} -->
+            <li>
+              <div class="xm-goods-item">
+                <div class="item-thumb"> <a href="{$goods.url}"> <img src="{$goods.goods_thumb}" alt="{$goods.goods_name} " /> </a> </div>
+                <div class="item-info">
+                  <h3 class="item-title"> <a href="{$goods.url}">{$goods.goods_name}</a> </h3>
+                  <div class="item-price"> <!--{if $goods.promote_price neq "" } -->{$goods.promote_price}<!--{else}-->{$goods.shop_price}<!--{/if}--><span class="sep">|</span><del>{$goods.market_price}</del> </div>
+                  <div class="item-star"> <span class="icon-stat icon-stat-5"></span> <span class="item-comments">{insert name='goods_comment' id=$goods.goods_id}人评价</span> </div>
+                  <div class="item-actions"> <a onclick="getmousepos(event)" class="btn btn-small btn-primary J_addCart" href="javascript:addToCart({$goods.goods_id})"><i class="iconfont">&#xe624;</i>购物车</a> <a class="btn btn-dake btn-small J_addFav" href="javascript:collect({$goods.goods_id});"><i class="iconfont">&#xe60a;</i>收藏</a> </div>
+                  <div class="item-flag"> {insert name='goods_save_rate' id=$goods.goods_id} </div>
+                </div>
+              </div>
+            </li>
+		<!--{/if}-->
+    <!--{/foreach}-->	
+           
+           
+          </ul>
+        </div>
+        <div class="xm-pagenavi"> 
+		<!-- {if $pager.page_prev} -->
+		<a class="numbers first iconfont" href="{$pager.page_prev}">&#xe604;</a>
+		<!-- {else} -->
+		<span class="numbers first iconfont">&#xe604;</span>
+		<!-- {/if} -->
+		<!--{foreach from=$pager.page_number key=key item=item}-->
+        <!-- {if $pager.page eq $key} -->
+		<span class="numbers current">{$key}</span>
+		<!-- {else} -->
+		<a class="numbers" href="{$item}">{$key}</a>
+		<!-- {/if} -->
+        <!--{/foreach}-->
+		<!-- {if $pager.page_next} -->
+		<a class="numbers last iconfont" href="{$pager.page_next}">&#xe605;</a> 
+		<!-- {else} -->
+		<span class="numbers last iconfont">&#xe605;</span>
+		<!-- {/if} -->
+		</div>
+      </div>
+    </div>
+	{else}
+	<div class="xm-box search-title-box" style="margin-top:10px" >
+        <div class="box-bd">
+            <h3 class="search-title">抱歉，无相关的商品</h3>
+         </div>
+    </div>
+	{/if}
+  </div>
+ 
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script>
+<script type="text/javascript">
+window.onload = function()
+{
+  
+}
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>
+<script type="text/javascript">
+    jQuery(function($) {
+        var $goodsList = $('.xm-goods-list');
+
+        $goodsList.on({
+            'mouseenter': function() {
+                $(this).addClass('active');
+            },
+            'mouseleave': function() {
+                $(this).removeClass('active');
+            }
+        }, 'li');
+
+        
+    });
+</script>
+  
+  </div>
+<!-- #BeginLibraryItem "/library/shop_alert.lbi" --><!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- .site-footer END -->
+</body>
+</html>

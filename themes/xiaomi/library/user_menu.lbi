@@ -1,0 +1,99 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+.uc-nav-box {
+	padding-bottom:15px;
+	background:#fafafa
+}
+.uc-nav-box h3{
+text-align:left; border:0px; background-color:#FAFAFA;
+}
+.uc-nav-box .box-hd {
+	height:50px;
+	margin:0 30px;
+	border-bottom:1px solid #dfdfdf
+}
+.uc-nav-box .box-hd .title {
+	margin:0;
+	font-size:18px;
+	font-weight:400;
+	line-height:50px;
+	color:#000
+}
+.uc-nav-list {
+	margin:10px 0 0;
+	padding:0;
+	list-style-type:none;
+	font-size:14px
+}
+.uc-nav-list li {
+	position:relative;
+	*zoom:1
+}
+.uc-nav-list li.current a {
+	padding-left:27px;
+	border-left:3px solid #9eb219;
+	color:#333;
+	background-color:#fafafa
+}
+.uc-nav-list li a {
+	display:block;
+	padding:9px 30px;
+	color:#6d6d6d
+}
+.uc-nav-list li a:hover {
+	color:#9eb219
+}
+.uc-nav-list li li a {
+	padding-left:50px
+}
+.uc-nav-list .children {
+	margin:0;
+	padding:0;
+	list-style-type:none
+}
+</style>
+<div class="span4">
+        <div class="uc-nav-box">
+          <div class="box-hd">
+            <h3 class="title">订单中心</h3>
+          </div>
+          <div class="box-bd">
+            <ul class="uc-nav-list">
+              <li {if $action eq 'order_list'}class="current"{/if}><a href="user.php?act=order_list">{$lang.label_order}</a></li>
+              <li {if $action eq 'address_list'}class="current"{/if}><a href="user.php?act=address_list"}>{$lang.label_address}</a></li>
+              <li {if $action eq 'track_packages'}class="current"{/if}><a href="user.php?act=track_packages">{$lang.label_track_packages}</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="uc-nav-box">
+          <div class="box-hd">
+            <h3 class="title">会员信息</h3>
+          </div>
+          <div class="box-bd">
+            <ul class="uc-nav-list">
+              <li {if $action eq 'message_list'}class="current"{/if}><a href="user.php?act=message_list">{$lang.label_message}</a></li>
+              <li {if $action eq 'tag_list'}class="current"{/if}><a href="user.php?act=tag_list">{$lang.label_tag}</a></li>
+              <li {if $action eq 'bonus'}class="current"{/if}><a href="user.php?act=bonus">{$lang.label_bonus}</a></li>
+			  <li {if $action eq 'affiliate'}class="current"{/if}><a href="user.php?act=affiliate">{$lang.label_affiliate}</a></li>
+			  <li {if $action eq 'collection_list'}class="current"{/if}><a href="user.php?act=collection_list">{$lang.label_collection}</a></li>
+			  <li {if $action eq 'comment_list'}class="current"{/if}><a href="user.php?act=comment_list">{$lang.label_comment}</a></li>
+			  <li {if $action eq 'booking_list'}class="current"{/if}><a href="user.php?act=booking_list">{$lang.label_booking}</a></li>
+			  <li {if $action eq 'account_log'}class="current"{/if}><a href="user.php?act=account_log">{$lang.label_user_surplus}</a></li>
+            </ul>
+          </div>
+        </div>
+		
+		<div class="uc-nav-box">
+          <div class="box-hd">
+            <h3 class="title">帐户中心</h3>
+          </div>
+          <div class="box-bd">
+            <ul class="uc-nav-list">
+              <li {if $action eq 'default'}class="current"{/if}><a href="user.php?act=default">{$lang.label_welcome}</a></li>
+              <li {if $action eq 'profile'}class="current"{/if}><a href="user.php?act=profile">{$lang.label_profile}</a></li>
+              <li><a href="user.php?act=logout" style="color:#a60201">安全退出</a></li>
+            </ul>
+          </div>
+        </div>
+		
+      </div>

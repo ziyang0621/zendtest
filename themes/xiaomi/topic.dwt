@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<script src="themes/xiaomi/js/jquery.js"></script>
+
+<style>
+.pad-container{width:1240px; margin:0px auto; overflow:hidden;}
+</style>
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<link rel="stylesheet" type="text/css" href="themes/xiaomi/css/base.min.css" />
+<link rel="stylesheet" type="text/css" href="themes/xiaomi/css/topic/pad.css" />
+{if $topic.css neq ''}
+<style type="text/css">
+  {$topic.css}
+</style>
+{/if}
+{$topic.intro}
+<div class="ahz-head container">
+  <h2 class="ahz-head-leftCon version-td"> <span>{$topic.title} </span> </h2>
+  <div id="J_head_rightCon_bottom" class="ahz-head-rightCon J_head_rightCon"> 
+  
+ </div>
+</div>
+<script language="javascript">
+$('#J_head_rightCon_bottom').html($('#J_head_rightCon').html());
+$('.J_pad_block').attr('style', '');
+</script>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript" src="themes/xiaomi/js/product_pad.js"></script>
+</body>
+</html>

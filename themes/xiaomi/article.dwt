@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link rel="stylesheet" href="themes/xiaomi/css/user-center.min.css" />
+<script src="themes/xiaomi/js/jquery.js"></script>
+
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="container breadcrumbs"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+<!-- .breadcrumbs END -->
+<div class="container">
+  <div class="uc-full-box">
+    <div class="row">
+      <div class="span4">
+	  <!-- {foreach from=get_shop_help() item=help_cat name=get_shop_help} -->
+        <div class="uc-nav-box">
+          <div class="box-hd">
+            <h3 class="title">{$help_cat.cat_name}</h3>
+          </div>
+          <div class="box-bd">
+            <ul class="uc-nav-list">
+			<!-- {foreach from=$help_cat.article item=item} -->
+              <li><a href="{$item.url}" title="{$item.short_title}">{$item.short_title}</a></li>
+            <!-- {/foreach} -->
+            </ul>
+          </div>
+        </div>
+        <!-- {/foreach} -->
+		
+      </div>
+      <!-- .span4 END -->
+     
+      <div class="span16">
+        <div class="xm-line-box uc-box">
+          <div class="box-hd">
+            <h3 class="title">{$article.title|escape:html}</h3>
+          </div>
+          <div class="bd" style="height:775px;">
+            <div class="m_reserver">
+                  {$article.content}
+			  
+			  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .uc-full-box END -->
+</div>
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>

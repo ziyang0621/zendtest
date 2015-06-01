@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link rel='stylesheet' type='text/css' href='themes/xiaomi/css/group.css'>
+<style>
+.w950 .block{width:1235px;margin:0 auto;padding:0;}
+</style>
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+<!--当前位置 start-->
+
+<!--当前位置 end-->
+<div class="blank"></div>
+<div class="block clearfix">
+  <div class="new_pinpai_body" style="background-color:#FFFFFF">
+  <div class="new_pinpai_con" style="">
+    <div class="location"> <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --> </div>
+    <!--左侧开始-->
+      <link rel="stylesheet" href="themes/xiaomi/css/base.min.css?2014050501" />
+      <div class="block">
+        <div class="tuan">
+          <ul class="tuan_list clearfix">
+            <!--{foreach from=$gb_list item=group_buy key=key name=groupname} 循环团购活动开始 -->
+            <li onmouseover="this.className='cur'" onmouseout="this.className=''" {if $smarty.foreach.groupname.iteration % 4 eq 0}class="list_right"{/if}>
+              <div>
+                <h3> <a target="_blank" href="{$group_buy.url}" title="{if $group_buy.group_title}{$group_buy.group_title}{else}{$group_buy.act_name}{/if}">{if $group_buy.group_title}{$group_buy.group_title}{else}{$group_buy.act_name}{/if}</a> </h3>
+                <a target="_blank" href="{$group_buy.url}"> <img src="{$group_buy.group_img}" alt="{$group_buy.act_name|escape:html}" style="margin-left:8px;width:277px; height:185px"> </a>
+                <p class="buy"><a target="_blank" href="{$group_buy.url}">立即抢购</a><s>¥</s>
+                  <!-- {foreach from=$group_buy.price_ladder item=item name=foo} -->
+                  <!-- {if $smarty.foreach.foo.last} -->
+                  {$item.price}
+                  <!-- {/if} -->
+                  <!-- {/foreach} -->
+                </p>
+                <p class="buy_info"> <span class="first" id="marketPrice">原价:<b>{$group_buy.market_price}</b></span> <span id="discount">折扣：<b>{$group_buy.t_discount}</b>折</span> <span class="last" id="buyCount">已购买<strong>{if $group_buy.isg_rs eq 1}{$group_buy.group_rs}{else}{$group_buy.cur_amount}{/if}</strong>件</span> </p>
+              </div>
+            </li>
+            <!--{/foreach}-->
+          </ul>
+        </div>
+        <div class="blank"></div>
+        <!-- #BeginLibraryItem "/library/pages2.lbi" --><!-- #EndLibraryItem --> </div>
+  
+    <div class="clear"></div>
+  </div>
+</div>
+</div>
+<div class="blank5"></div>
+
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

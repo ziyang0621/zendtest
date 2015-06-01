@@ -1,0 +1,735 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="themes/xiaomi/css/user.css?ver=2013120301" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,user.js,transport.js'}
+{insert_scripts files='utils.js'}
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript">
+document.getElementById('site_header').style.display = 'none';
+document.write("<link rel='stylesheet' type='text/css' href='themes/xiaomi/css/980base.css'>");
+</script>
+<!-- .site-topbar END -->
+<div class="site-header site-mini-header container" style="width:903px">
+  <div class="span4">
+    <div class="site-logo"> <a class="logo" href="index.php"><img src="images/logo.gif" /> </a> </div>
+  </div>
+</div>
+<div class="suc_content reg-account nojsp" style=" padding-top:15px;">
+  <!-- {if $action eq 'login'} -->
+  <div class="suc_kuang">
+    <div class="hei_513">
+      <h4 class="h4_suc">登录帐户</h4>
+      <p class="suc_p">如果您没有有商城帐户，则可 <a href="user.php?act=register" class="cor_yellow">在此注册</a> </p>
+      <form name="formLogin" action="user.php" method="post" onSubmit="return userLogin()">
+        <dl class="login-dl clearfix" style="margin-top:20px">
+          <dt class="dt_l">{$lang.label_username}</dt>
+          <dd class="dd_r clearfix">
+            <input type="text" name="username" id="username"  class="input_kuang val_m item errortip address" value=""  autocomplete="off" />
+          </dd>
+
+          <dt class="dt_l">{$lang.label_password}</dt>
+          <dd class="dd_r dd_r_pos clearfix" id="pwdTd">
+            <input type="password" class="input_kuang item val_m errortip password" id="password" name="password" autocomplete="off" />
+			<span class="prompt_info"><a href="user.php?act=get_password" class="f3">忘记密码了?</a></span>
+			
+          </dd>
+          
+          <!-- 判断是否启用验证码{if $enabled_captcha} -->
+          <dt class="dt_l" style="margin-top:0px;">验证码</dt>
+          <dd class="dd_r clearfix" style="margin-top:10px;">
+            <input id="captcha" type="text" class="input_kuang val_m item errortip checkcode" name="captcha" autocomplete="off" />
+            <img src="captcha.php?{$rand}" alt="captcha" style="vertical-align: middle;cursor: pointer; margin-top:10px" onClick="this.src='captcha.php?'+Math.random()" /> <span class="checkcode_span">点击图片刷新验证码 <br/>
+            <i class="code_error"> </i> </span> </dd>
+          <!--{/if}-->
+          <dt class="dt_l">&nbsp;</dt>
+          <dd class="dd_r la_height clearfix">
+            <div class="sub_login flt_l">
+              <input type="hidden" name="act" value="act_login" />
+            <input type="hidden" name="back_act" value="{$back_act}" />
+              <input name="Submit" type="submit" class="no_bg" value="立即登录" />
+            </div>
+          </dd>
+		  <dt class="dt_l">&nbsp;</dt>
+          <dd class="dd_r la_height clearfix">
+            <div class="flt_l"><br />
+             <table  border="0" cellpadding="0" cellspacing="0">
+                <tbody><tr>
+                  <td height="30" colspan="4" style="padding-bottom:15px">使用合作网站账号登录：</td>
+                </tr>
+                <tr>
+                  <td><a href="user.php?act=oath&type=qq"><img src="images/qq_login.gif"/></a>
+</td>
+                                   <td><a href="user.php?act=oath&type=weibo"><img src="images/sina_login_logo.gif"/></a>
+</td>                  <td><a href="user.php?act=oath&type=alipay"><img src="images/alipay_login.png"/></a>
+</td><td><a href="user.php?act=oath&type=taobao"><img src="images/taobao_login.gif"/></a>
+</td>
+                </tr>
+              </tbody>
+			  </table>
+            </div>
+          </dd>
+        </dl>
+      </form>
+
+      
+    </div>
+    <div class="suc_botm"></div>
+    <!--这部分是卷角效果-->
+  </div>
+  
+  <!--{/if}-->
+  <!--{if $action eq 'register'}-->
+  <script language="javascript">
+function register_mobile()
+{
+  var frm  = document.getElementById('reg_mobile');
+  var username  = Utils.trim(frm.elements['username'].value);
+  var mobile_code  = Utils.trim(frm.elements['mobile_code'].value);
+  var email  = username + '@163.com';
+  var password  = Utils.trim(frm.elements['password'].value);
+  var confirm_password = Utils.trim(frm.elements['confirm_password'].value);
+  var checked_agreement = frm.elements['agreement'].checked;
+  var msn = frm.elements['extend_field1'] ? Utils.trim(frm.elements['extend_field1'].value) : '';
+  var qq = frm.elements['extend_field2'] ? Utils.trim(frm.elements['extend_field2'].value) : '';
+  var home_phone = frm.elements['extend_field4'] ? Utils.trim(frm.elements['extend_field4'].value) : '';
+  var office_phone = frm.elements['extend_field3'] ? Utils.trim(frm.elements['extend_field3'].value) : '';
+  var mobile_phone = frm.elements['extend_field5'] ? Utils.trim(frm.elements['extend_field5'].value) : '';
+  var passwd_answer = frm.elements['passwd_answer'] ? Utils.trim(frm.elements['passwd_answer'].value) : '';
+  var sel_question =  frm.elements['sel_question'] ? Utils.trim(frm.elements['sel_question'].value) : '';
+
+
+  var msg = "";
+  frm.elements['email'].value = email;
+  
+  var regPartton=/1[3-8]+\d{9}/;
+  
+  if (username.length == 0)
+  {
+    msg += '-手机不能为空\n';
+  }
+  else if(username.length != 11){
+    msg += '-手机号码格式不正确\n';
+  }
+  else if(!regPartton.test(username)){
+    msg += '-手机号码格式不正确\n';
+  }
+  
+  
+  if (mobile_code.length == 0)
+  {
+    msg += '-手机验证码不能为空\n';
+  }
+  else {
+    var result = Ajax.call('sms/sms.php?act=check', 'mobile=' + username + '&mobile_code=' + mobile_code, null, 'POST', 'JSON', false);	
+	
+	if (result.code==2){
+					
+	}else{
+		msg += '-手机验证码不正确\n';
+	}
+    
+  }	
+	
+
+  
+  if (password.length == 0)
+  {
+    msg += password_empty + '\n';
+  }
+  else if (password.length < 6)
+  {
+    msg += password_shorter + '\n';
+  }
+  if (/ /.test(password) == true)
+  {
+	msg += passwd_balnk + '\n';
+  }
+  if (confirm_password != password )
+  {
+    msg += confirm_password_invalid + '\n';
+  }
+  if(checked_agreement != true)
+  {
+    msg += agreement + '\n';
+  }
+
+  if (msn.length > 0 && (!Utils.isEmail(msn)))
+  {
+    msg += msn_invalid + '\n';
+  }
+
+  if (qq.length > 0 && (!Utils.isNumber(qq)))
+  {
+    msg += qq_invalid + '\n';
+  }
+
+  if (office_phone.length>0)
+  {
+    var reg = /^[\d|\-|\s]+$/;
+    if (!reg.test(office_phone))
+    {
+      msg += office_phone_invalid + '\n';
+    }
+  }
+  if (home_phone.length>0)
+  {
+    var reg = /^[\d|\-|\s]+$/;
+
+    if (!reg.test(home_phone))
+    {
+      msg += home_phone_invalid + '\n';
+    }
+  }
+  if (mobile_phone.length>0)
+  {
+    var reg = /^[\d|\-|\s]+$/;
+    if (!reg.test(mobile_phone))
+    {
+      msg += mobile_phone_invalid + '\n';
+    }
+  }
+  if (passwd_answer.length > 0 && sel_question == 0 || document.getElementById('passwd_quesetion') && passwd_answer.length == 0)
+  {
+    msg += no_select_question + '\n';
+  }
+
+  for (i = 4; i < frm.elements.length - 4; i++)	// 从第五项开始循环检查是否为必填项
+  {
+	needinput = document.getElementById(frm.elements[i].name + 'i') ? document.getElementById(frm.elements[i].name + 'i') : '';
+
+	if (needinput != '' && frm.elements[i].value.length == 0)
+	{
+	  msg += '- ' + needinput.innerHTML + msg_blank + '\n';
+	}
+  }
+
+  if (msg.length > 0)
+  {
+    alert(msg);
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+
+function register_email()
+{
+  var frm  = document.getElementById('reg_email');
+  var username  = Utils.trim(frm.elements['username'].value);
+  var email  = username;
+  var password  = Utils.trim(frm.elements['password'].value);
+  var confirm_password = Utils.trim(frm.elements['confirm_password'].value);
+  var checked_agreement = frm.elements['agreement'].checked;
+  var msn = frm.elements['extend_field1'] ? Utils.trim(frm.elements['extend_field1'].value) : '';
+  var qq = frm.elements['extend_field2'] ? Utils.trim(frm.elements['extend_field2'].value) : '';
+  var home_phone = frm.elements['extend_field4'] ? Utils.trim(frm.elements['extend_field4'].value) : '';
+  var office_phone = frm.elements['extend_field3'] ? Utils.trim(frm.elements['extend_field3'].value) : '';
+  var mobile_phone = frm.elements['extend_field5'] ? Utils.trim(frm.elements['extend_field5'].value) : '';
+  var passwd_answer = frm.elements['passwd_answer'] ? Utils.trim(frm.elements['passwd_answer'].value) : '';
+  var sel_question =  frm.elements['sel_question'] ? Utils.trim(frm.elements['sel_question'].value) : '';
+
+
+  var msg = "";
+  frm.elements['email'].value = email;
+  
+
+  if (email.length == 0)
+  {
+    msg += email_empty + '\n';
+  }
+  else
+  {
+    if ( ! (Utils.isEmail(email)))
+    {
+      msg += email_invalid + '\n';
+    }
+  }
+  if (password.length == 0)
+  {
+    msg += password_empty + '\n';
+  }
+  else if (password.length < 6)
+  {
+    msg += password_shorter + '\n';
+  }
+  if (/ /.test(password) == true)
+  {
+	msg += passwd_balnk + '\n';
+  }
+  if (confirm_password != password )
+  {
+    msg += confirm_password_invalid + '\n';
+  }
+  if(checked_agreement != true)
+  {
+    msg += agreement + '\n';
+  }
+
+  if (msn.length > 0 && (!Utils.isEmail(msn)))
+  {
+    msg += msn_invalid + '\n';
+  }
+
+  if (qq.length > 0 && (!Utils.isNumber(qq)))
+  {
+    msg += qq_invalid + '\n';
+  }
+
+  if (office_phone.length>0)
+  {
+    var reg = /^[\d|\-|\s]+$/;
+    if (!reg.test(office_phone))
+    {
+      msg += office_phone_invalid + '\n';
+    }
+  }
+  if (home_phone.length>0)
+  {
+    var reg = /^[\d|\-|\s]+$/;
+
+    if (!reg.test(home_phone))
+    {
+      msg += home_phone_invalid + '\n';
+    }
+  }
+  if (mobile_phone.length>0)
+  {
+    var reg = /^[\d|\-|\s]+$/;
+    if (!reg.test(mobile_phone))
+    {
+      msg += mobile_phone_invalid + '\n';
+    }
+  }
+  if (passwd_answer.length > 0 && sel_question == 0 || document.getElementById('passwd_quesetion') && passwd_answer.length == 0)
+  {
+    msg += no_select_question + '\n';
+  }
+
+  for (i = 4; i < frm.elements.length - 4; i++)	// 从第五项开始循环检查是否为必填项
+  {
+	needinput = document.getElementById(frm.elements[i].name + 'i') ? document.getElementById(frm.elements[i].name + 'i') : '';
+
+	if (needinput != '' && frm.elements[i].value.length == 0)
+	{
+	  msg += '- ' + needinput.innerHTML + msg_blank + '\n';
+	}
+  }
+
+  if (msg.length > 0)
+  {
+    alert(msg);
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+
+function is_registered( username )
+{
+    var submit_disabled = false;
+	var unlen = username.replace(/[^\x00-\xff]/g, "**").length;
+
+    if ( username == '' )
+    {
+        document.getElementById('username_notice').innerHTML = '-手机号码不能为空';
+        var submit_disabled = true;
+    }
+	
+	if ( unlen != 11 )
+    {
+        document.getElementById('username_notice').innerHTML = '-手机号码格式不正确';
+        var submit_disabled = true;
+    }
+
+    var regPartton=/1[3-8]+\d{9}/;
+	
+	if(!regPartton.test(username)){
+		document.getElementById('username_notice').innerHTML = '-手机号码格式不正确';
+        var submit_disabled = true;
+	}
+	
+    if ( submit_disabled )
+    {
+        document.getElementById('reg_mobile').elements['Submit'].disabled = 'disabled';
+		document.getElementById('sendRegister').disabled = 'disabled';
+        return false;
+    }
+	
+    Ajax.call( 'user.php?act=is_registered', 'username=' + username, registed_callback , 'GET', 'TEXT', true, true );
+}
+
+
+
+function registed_callback(result)
+{
+  if ( result == "true" )
+  {
+    document.getElementById('sendRegister').disabled = false;
+    document.getElementById('username_notice').innerHTML = msg_can_rg;
+    document.getElementById('reg_mobile').elements['Submit'].disabled = '';
+  }
+  else
+  {
+    document.getElementById('sendRegister').disabled = true;
+    document.getElementById('username_notice').innerHTML = '该手机号码已绑定，请使用其他手机号码';
+    document.getElementById('reg_mobile').elements['Submit'].disabled = 'disabled';
+  }
+}
+
+function checkEmail(email)
+{
+  var submit_disabled = false;
+  
+  if (email == '')
+  {
+    document.getElementById('email_notice').innerHTML = msg_email_blank;
+    submit_disabled = true;
+  }
+  else if (!Utils.isEmail(email))
+  {
+    document.getElementById('email_notice').innerHTML = msg_email_format;
+    submit_disabled = true;
+  }
+ 
+  if( submit_disabled )
+  {
+    document.getElementById('reg_email').elements['Submit'].disabled = 'disabled';
+    return false;
+  }
+  Ajax.call( 'user.php?act=check_email', 'email=' + email, check_email_callback , 'GET', 'TEXT', true, true );
+}
+
+function check_email_callback(result)
+{
+  if ( result == 'ok' )
+  {
+    document.getElementById('email_notice').innerHTML = msg_can_rg;
+    document.getElementById('reg_email').elements['Submit'].disabled = '';
+  }
+  else
+  {
+    document.getElementById('email_notice').innerHTML = msg_email_registered;
+    document.getElementById('reg_email').elements['Submit'].disabled = 'disabled';
+  }
+}
+
+function check_password2( password )
+{
+    if ( password.length < 6 )
+    {
+        document.getElementById('password_notice2').innerHTML = password_shorter;
+    }
+    else
+    {
+        document.getElementById('password_notice2').innerHTML = msg_can_rg;
+    }
+}
+
+function check_conform_password2( conform_password )
+{
+    password = document.getElementById('password2').value;
+    
+    if ( conform_password.length < 6 )
+    {
+        document.getElementById('conform_password_notice2').innerHTML = password_shorter;
+        return false;
+    }
+    if ( conform_password != password )
+    {
+        document.getElementById('conform_password_notice2').innerHTML = confirm_password_invalid;
+    }
+    else
+    {
+        document.getElementById('conform_password_notice2').innerHTML = msg_can_rg;
+    }
+}
+
+function reg_tab(flag){
+	if (flag == 0){
+		document.getElementById('reg_mobile').style.display = 'block';
+		document.getElementById('reg_email').style.display = 'none';
+	}else{
+		document.getElementById('reg_mobile').style.display = 'none';
+		document.getElementById('reg_email').style.display = 'block';
+	}
+}
+  
+  </script>
+  <div class="suc_kuang">
+    <div class="hei_513">
+      <h4 class="h4_suc">注册帐户</h4>
+      <p class="suc_p">如果您已拥有商城帐户，则可 <a href="user.php" class="cor_yellow">在此登录</a> </p>
+	  <div class="radio_quyu">
+        <input name="registerMethod" class="Mradio" id="tab2" clickfor="#regByPhone" checked="checked" type="radio" onclick="reg_tab(0)"><label for="tab2" hidefocus="true">用手机号码注册</label>
+        <input name="registerMethod" class="Mradio marl_40" id="tab1" clickfor="#regByEmail" type="radio" onclick="reg_tab(1)"><label for="tab1" hidefocus="true">用电子邮箱注册</label>
+
+        
+      </div>
+	  <script type="text/javascript" src="sms/sms.js"></script>
+      <form action="user.php" method="post" name="formUser" onsubmit="return register_mobile();" id="reg_mobile">
+        <dl class="login-dl clearfix" style="margin-top:20px">
+          <dt class="dt_l">手机号码</dt>
+          <dd class="dd_r clearfix">
+            <input type="text" name="username" id="mobilename" onblur="is_registered(this.value);"  class="input_kuang val_m item errortip address" value=""  autocomplete="off" /><input class="mt_login val_m getCode noSend" disabled="disabled" id="sendRegister" value="获取验证码" type="button"  onclick="sendSms();">
+            <span class="prompt_info" id="username_notice" style="color:#FF0000"> *</span> </dd>
+		  <dt class="dt_l">验证码</dt>
+          <dd class="dd_r clearfix empty" id="validate_td">
+            <input class="input_kuang code-area item val_m" name="mobile_code" id="mobile_code" isrequired="true" autocomplete="off" type="text"><span class="prompt_info" style="color:#FF0000"> *</span>
+            
+          </dd>	
+          
+          <dt class="dt_l">{$lang.label_password}</dt>
+          <dd class="dd_r dd_r_pos clearfix" id="pwdTd">
+            <input type="password" class="input_kuang item val_m errortip password" onblur="check_password(this.value);" id="password1" name="password" autocomplete="off" />
+            <span class="prompt_info" id="password_notice" style="color:#FF0000"> *</span></dd>
+          <dt class="dt_l">{$lang.label_confirm_password}</dt>
+          <dd class="dd_r clearfix">
+            <input type="password" class="input_kuang val_m item errortip" name="confirm_password" autocomplete="off"  id="conform_password" onblur="check_conform_password(this.value);"/>
+            <span class="prompt_info" id="conform_password_notice" style="color:#FF0000"> *</span></dd>
+          <!-- {foreach from=$extend_info_list item=field} -->
+          <!-- {if $field.id eq 6} -->
+          <!-- {else} -->
+          <dt class="dt_l" 
+          
+          <!-- {if $field.is_need} -->
+          id="extend_field{$field.id}i"
+          <!--{/if}-->
+          >{$field.reg_field_name}
+          </dt>
+          <dd class="dd_r clearfix">
+            <input type="text" name="extend_field{$field.id}" id="extend_field{$field.id}" class="input_kuang val_m item errortip address" value=""  autocomplete="off" />
+            <!-- {if $field.is_need} -->
+            <span class="prompt_info" style="color:#FF0000"> *</span>
+            <!-- {/if} -->
+          </dd>
+          <!-- {/if} -->
+          <!-- {/foreach} -->
+          <!-- 判断是否启用验证码{if $enabled_captcha} -->
+          <dt class="dt_l" style="margin-top:10px;">验证码</dt>
+          <dd class="dd_r clearfix" style="margin-top:10px;">
+            <input id="captcha" type="text" class="input_kuang val_m item errortip checkcode" name="captcha" autocomplete="off" />
+            <img src="captcha.php?{$rand}" alt="captcha" style="vertical-align: middle;cursor: pointer; margin-top:10px" onClick="this.src='captcha.php?'+Math.random()" /> <span class="checkcode_span">点击图片刷新验证码 <br/>
+            <i class="code_error"> </i> </span> </dd>
+          <!--{/if}-->
+          <dt class="dt_l">&nbsp;</dt>
+          <dd class="dd_r la_height clearfix">
+            <div class="sub_login flt_l">
+              <input name="agreement" type="checkbox" value="1" checked="checked" style="display:none" />
+			  <input name="email" type="hidden" value="" >
+              <input name="act" type="hidden" value="act_register" >
+              <input type="hidden" name="back_act" value="{$back_act}" />
+              <input name="Submit" type="submit" class="no_bg" value="立即注册" />
+            </div>
+          </dd>
+        </dl>
+      </form>
+	  <form action="user.php" method="post" name="formUser" onsubmit="return register_email();" id="reg_email" style="display:none" >
+        <dl class="login-dl clearfix" style="margin-top:20px">
+          <dt class="dt_l">邮箱</dt>
+          <dd class="dd_r clearfix">
+            <input type="text" name="username" id="username" onblur="checkEmail(this.value);"  class="input_kuang val_m item errortip address" value=""  autocomplete="off" />
+            <span class="prompt_info" id="email_notice" style="color:#FF0000"> *</span> </dd>
+          
+          <dt class="dt_l">{$lang.label_password}</dt>
+          <dd class="dd_r dd_r_pos clearfix" id="pwdTd">
+            <input type="password" class="input_kuang item val_m errortip password" onblur="check_password2(this.value);" id="password2" name="password" autocomplete="off" />
+            <span class="prompt_info" id="password_notice2" style="color:#FF0000"> *</span></dd>
+          <dt class="dt_l">{$lang.label_confirm_password}</dt>
+          <dd class="dd_r clearfix">
+            <input type="password" class="input_kuang val_m item errortip" name="confirm_password" autocomplete="off"  id="conform_password" onblur="check_conform_password2(this.value);"/>
+            <span class="prompt_info" id="conform_password_notice2" style="color:#FF0000"> *</span></dd>
+          <!-- {foreach from=$extend_info_list item=field} -->
+          <!-- {if $field.id eq 6} -->
+          <!-- {else} -->
+          <dt class="dt_l" 
+          
+          <!-- {if $field.is_need} -->
+          id="extend_field{$field.id}i"
+          <!--{/if}-->
+          >{$field.reg_field_name}
+          </dt>
+          <dd class="dd_r clearfix">
+            <input type="text" name="extend_field{$field.id}" id="extend_field{$field.id}" class="input_kuang val_m item errortip address" value=""  autocomplete="off" />
+            <!-- {if $field.is_need} -->
+            <span class="prompt_info" style="color:#FF0000"> *</span>
+            <!-- {/if} -->
+          </dd>
+          <!-- {/if} -->
+          <!-- {/foreach} -->
+          <!-- 判断是否启用验证码{if $enabled_captcha} -->
+          <dt class="dt_l" style="margin-top:10px;">验证码</dt>
+          <dd class="dd_r clearfix" style="margin-top:10px;">
+            <input id="captcha" type="text" class="input_kuang val_m item errortip checkcode" name="captcha" autocomplete="off" />
+            <img src="captcha.php?{$rand}" alt="captcha" style="vertical-align: middle;cursor: pointer; margin-top:10px" onClick="this.src='captcha.php?'+Math.random()" /> <span class="checkcode_span">点击图片刷新验证码 <br/>
+            <i class="code_error"> </i> </span> </dd>
+          <!--{/if}-->
+          <dt class="dt_l">&nbsp;</dt>
+          <dd class="dd_r la_height clearfix">
+            <div class="sub_login flt_l">
+              <input name="agreement" type="checkbox" value="1" checked="checked" style="display:none" />
+              <input name="act" type="hidden" value="act_register" >
+			  <input name="email" type="hidden" value="" >
+              <input type="hidden" name="back_act" value="{$back_act}" />
+              <input name="Submit" type="submit" class="no_bg" value="立即注册" />
+            </div>
+          </dd>
+        </dl>
+      </form>
+      <!-- email end -->
+      <!-- phone end -->
+    </div>
+    <div class="suc_botm"></div>
+    <!--这部分是卷角效果-->
+  </div>
+  <!--{/if}-->
+  <!--{if $action eq 'get_password'} -->
+  {insert_scripts files='utils.js'}
+  <script type="text/javascript">
+    {foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+    </script>
+	
+	<div class="suc_kuang">
+    <div class="hei_513">
+      <h4 class="h4_suc">找回密码</h4>
+      <p class="suc_p">{$lang.username_and_email}</p>
+      <form action="user.php" method="post" name="getPassword" onsubmit="return submitPwdInfo();">
+        <dl class="login-dl clearfix" style="margin-top:20px">
+          <dt class="dt_l">{$lang.username}</dt>
+          <dd class="dd_r clearfix">
+            <input type="text" name="user_name" id="user_name"  class="input_kuang val_m item errortip address" value=""  autocomplete="off" />
+          </dd>
+
+          <dt class="dt_l">{$lang.email}</dt>
+          <dd class="dd_r clearfix">
+            <input type="text" name="email" id="email"  class="input_kuang val_m item errortip address" value=""  autocomplete="off" />
+          </dd>
+          
+          <dt class="dt_l">&nbsp;</dt>
+          <dd class="dd_r la_height clearfix">
+            <div class="sub_login flt_l">
+              <input type="hidden" name="act" value="send_pwd_email" />
+              <input name="submit" type="submit" class="no_bg" value="{$lang.submit}" />
+            </div>
+          </dd>
+        </dl>
+      </form>
+      <!-- email end -->
+      <!-- phone end -->
+    </div>
+    <div class="suc_botm"></div>
+    <!--这部分是卷角效果-->
+  </div>
+	
+	
+	
+  <!--{/if}-->
+  <!-- {if $action eq 'reset_password'} -->
+  <script type="text/javascript">
+    {foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+    </script>
+	<div class="suc_kuang">
+    <div class="hei_513">
+      <h4 class="h4_suc">重设密码</h4>
+      <p class="suc_p"></p>
+      <form action="user.php" method="post" name="getPassword2" onSubmit="return submitPwd()">
+        <dl class="login-dl clearfix" style="margin-top:20px">
+          <dt class="dt_l">{$lang.new_password}</dt>
+          <dd class="dd_r clearfix">
+            <input type="password" name="new_password" id="new_password"  class="input_kuang val_m item errortip address" value=""  autocomplete="off" />
+          </dd>
+
+          <dt class="dt_l">{$lang.confirm_password}</dt>
+          <dd class="dd_r clearfix">
+            <input type="password" name="confirm_password" id="confirm_password"  class="input_kuang val_m item errortip address" value=""  autocomplete="off" />
+          </dd>
+          
+          <dt class="dt_l">&nbsp;</dt>
+          <dd class="dd_r la_height clearfix">
+            <div class="sub_login flt_l">
+              <input type="hidden" name="act" value="act_edit_password" />
+            <input type="hidden" name="uid" value="{$uid}" />
+            <input type="hidden" name="code" value="{$code}" />
+              <input name="submit" type="submit" class="no_bg" value="{$lang.confirm_submit}" />
+            </div>
+          </dd>
+        </dl>
+      </form>
+      <!-- email end -->
+      <!-- phone end -->
+    </div>
+    <div class="suc_botm"></div>
+    <!--这部分是卷角效果-->
+  </div>
+  <!--{/if}-->
+</div>
+<div class="footer" style="width:auto;">
+  <ul class="links1">
+    <li class="copyright"> {$copyright}<br />
+      {$shop_address} {$shop_postcode}
+      <!-- 客服电话{if $service_phone} -->
+      Tel: {$service_phone}
+      <!-- 结束客服电话{/if} -->
+      <!-- 邮件{if $service_email} -->
+      E-mail: {$service_email}<br />
+      <!-- 结束邮件{/if} -->
+      <!-- QQ 号码 {foreach from=$qq item=im} -->
+      <!-- {if $im} -->
+      <a href="http://wpa.qq.com/msgrd?V=1&amp;Uin={$im}&amp;Site={$shop_name}&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:{$im}:4" height="16" border="0" alt="QQ" /> {$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束QQ号码 -->
+      <!-- 淘宝旺旺 {foreach from=$ww item=im} -->
+      <!-- {if $im} -->
+      <a href="http://amos1.taobao.com/msg.ww?v=2&uid={$im|escape:u8_url}&s=2" target="_blank"><img src="http://amos1.taobao.com/online.ww?v=2&uid={$im|escape:u8_url}&s=2" width="16" height="16" border="0" alt="淘宝旺旺" />{$im}</a>
+      <!-- {/if} -->
+      <!--{/foreach} 结束淘宝旺旺 -->
+      <!-- Yahoo Messenger {foreach from=$ym item=im} -->
+      <!-- {if $im} -->
+      <a href="http://edit.yahoo.com/config/send_webmesg?.target={$im}n&.src=pg" target="_blank"><img src="../images/yahoo.gif" width="18" height="17" border="0" alt="Yahoo Messenger" /> {$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束Yahoo Messenger -->
+      <!-- MSN Messenger {foreach from=$msn item=im} -->
+      <!-- {if $im} -->
+      <img src="../images/msn.gif" width="18" height="17" border="0" alt="MSN" /> <a href="msnim:chat?contact={$im}">{$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束MSN Messenger -->
+      <!-- Skype {foreach from=$skype item=im} -->
+      <!-- {if $im} -->
+      <img src="http://mystatus.skype.com/smallclassic/{$im|escape:url}" alt="Skype" /><a href="skype:{$im|escape:url}?call">{$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} -->
+      <br />
+      <!-- ICP 证书{if $icp_number} -->
+      {$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a><br />
+      <!-- 结束ICP 证书{/if} -->
+    </li>
+  </ul>
+</div>
+</body>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+{foreach from=$lang.passport_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var username_exist = "{$lang.username_exist}";
+</script>
+</html>

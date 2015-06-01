@@ -1,0 +1,151 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="site-footer">
+  <div class="container">
+    <div class="footer-service">
+      <ul class="list-service clearfix">
+        <li> <a target="_blank"> <i class="iconfont">&#xe63a;</i> <strong>1小时快修服务</strong> <span>小米之家承诺1小时内完成维修</span> </a> </li>
+        <li> <a target="_blank"> <i class="iconfont">&#xe638;</i> <strong>7天无理由退货</strong> <span>收到商品7天内无理由退货服务</span> </a> </li>
+        <li> <a target="_blank"> <i class="iconfont">&#xe651;</i> <strong>15天免费换货</strong> <span>故障、质量问题免费换新货承诺</span> </a> </li>
+        <li> <a target="_blank"> <i class="iconfont">&#xe64d;</i> <strong>满100元包邮</strong> <span>在线支付满百元免邮费（除电视）</span> </a> </li>
+        <li> <a target="_blank"> <i class="iconfont">&#xe63b;</i> <strong>451家售后网点</strong> <span>遍布全国31个省市的售后服务点</span> </a> </li>
+      </ul>
+    </div>
+    <div class="footer-links clearfix">
+	<!-- {foreach from=get_shop_help() item=help_cat name=get_shop_help} -->
+      <dl class="col-links {if $smarty.foreach.get_shop_help.iteration eq 1}col-links-first{/if}">
+        <dt>{$help_cat.cat_name}</dt>
+        <!-- {foreach from=$help_cat.article item=item} -->
+          <dd><a href="{$item.url}" title="{$item.short_title}">{$item.short_title}</a></dd>
+        <!-- {/foreach} -->
+      </dl>
+	  <!-- {/foreach} -->
+      
+      <div class="col-contact">
+        <p class="phone">{$service_phone}</p>
+        <p>周一至周日 8:00-18:00<br />
+          （仅收市话费）</p>
+		 <!-- QQ 号码 {foreach from=$qq item=im name=qq_service} --> 
+		 <!-- {if $im} -->
+		 {if $smarty.foreach.qq_service.iteration eq 1}
+        <a class="btn btn-primary btn-small" href="http://wpa.qq.com/msgrd?V=1&amp;Uin={$im}&amp;Site={$shop_name}&amp;Menu=yes" target="_blank">24小时在线客服</a> 
+		{/if}
+		<!-- {/if} -->
+		 <!-- {/foreach} 结束QQ号码 -->
+		</div>
+    </div>
+    <div class="footer-info clearfix" style="width:100%">
+      <div class="info-text" style="position:relative; text-align:center;width:100%">
+        <p>
+		<!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+		<a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a><!-- {if !$smarty.foreach.nav_bottom_list.last} --><span class="sep">|</span><!-- {/if} -->
+		<!-- {/foreach} -->
+		</p>
+        <p>
+		{$copyright}<br />
+		{$shop_address} {$shop_postcode}
+ <!-- 客服电话{if $service_phone} -->
+      Tel: {$service_phone}
+ <!-- 结束客服电话{/if} -->
+ <!-- 邮件{if $service_email} -->
+      E-mail: {$service_email}<br />
+ <!-- 结束邮件{/if} -->
+ <!-- QQ 号码 {foreach from=$qq item=im} -->
+      <!-- {if $im} -->
+      <a href="http://wpa.qq.com/msgrd?V=1&amp;Uin={$im}&amp;Site={$shop_name}&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:{$im}:4" height="16" border="0" alt="QQ" /> {$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束QQ号码 -->
+      <!-- 淘宝旺旺 {foreach from=$ww item=im} -->
+      <!-- {if $im} -->
+      <a href="http://amos1.taobao.com/msg.ww?v=2&uid={$im|escape:u8_url}&s=2" target="_blank"><img src="http://amos1.taobao.com/online.ww?v=2&uid={$im|escape:u8_url}&s=2" width="16" height="16" border="0" alt="淘宝旺旺" />{$im}</a>
+      <!-- {/if} -->
+      <!--{/foreach} 结束淘宝旺旺 -->
+      <!-- Yahoo Messenger {foreach from=$ym item=im} -->
+      <!-- {if $im} -->
+      <a href="http://edit.yahoo.com/config/send_webmesg?.target={$im}n&.src=pg" target="_blank"><img src="../images/yahoo.gif" width="18" height="17" border="0" alt="Yahoo Messenger" /> {$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束Yahoo Messenger -->
+      <!-- MSN Messenger {foreach from=$msn item=im} -->
+      <!-- {if $im} -->
+      <img src="../images/msn.gif" width="18" height="17" border="0" alt="MSN" /> <a href="msnim:chat?contact={$im}">{$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束MSN Messenger -->
+      <!-- Skype {foreach from=$skype item=im} -->
+      <!-- {if $im} -->
+      <img src="http://mystatus.skype.com/smallclassic/{$im|escape:url}" alt="Skype" /><a href="skype:{$im|escape:url}?call">{$im}</a>
+      <!-- {/if} -->
+  <!-- {/foreach} --><br />
+  <!-- ICP 证书{if $icp_number} -->
+  {$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a><br />
+  <!-- 结束ICP 证书{/if} -->
+		</p>
+      </div>
+      
+      <div class="info-links" style="text-align:center"> <a target="_blank"><img src="http://p.www.xiaomi.com/zt/12052601/cnnicVerifyseal.png" alt="可信网站" /></a> <a target="_blank"><img alt="诚信网站" src="http://p.www.xiaomi.com/zt/12052601/szfwVerifyseal.gif" /></a> <a target="_blank"><img alt="诚信网站" src="http://p.www.xiaomi.com/zt/12052601/save.jpg" /></a> </div>
+    </div>
+  </div>
+</div>
+<script>
+        function createurlcdn(url, t) {
+            t = t || 5;
+            var date = new Date();
+            var hour = date.getHours();
+            hour = (hour < 10 ? "0" : "") + hour;
+            var min = date.getMinutes();
+            min = ( parseInt(min / t) < 10 ? "0" : "") + parseInt(min / 5);
+            var day = date.getDate();
+            day = (day < 10 ? "0" : "") + day;
+            var version = day + hour + min;
+            document.write('<script src="' + url + '?ver=' + version + 'xiaomi"><\/script>');
+        }
+        createurlcdn("themes/xiaomi/js/categoryTree.js",5);
+    </script>
+<script src="themes/xiaomi/js/base.min.js?2014042901"></script>
+<script>
+        XIAOMI.namespace("GLOBAL_CONFIG,GLOBAL_VAR");
+        XIAOMI.GLOBAL_CONFIG = {
+            orderSite:"",
+            wwwSite:"",
+            damiaoSite:"",
+            logoutUrl:"",
+            quickLoginUrl:"",
+            //图片上传路径地址
+            uploadUrl:"",
+            //图片远程存储地址
+            imgSaveUrl:"",
+            //评论查询地址
+            commentUrl:"",
+            //评论Api地址
+            commentApiUrl:"",
+            //侧边栏数据接口
+            sideBarApiUrl:""
+        }
+        XIAOMI.app.setLoginInfo.orderUrl = XIAOMI.GLOBAL_CONFIG.orderSite + '/user/order';
+        XIAOMI.app.setLoginInfo.logoutUrl = XIAOMI.GLOBAL_CONFIG.logoutUrl;
+        XIAOMI.app.setLoginInfo.init(XIAOMI.GLOBAL_CONFIG);
+
+        //全站需要直接执行的函数
+        jQuery(function ($) {
+            var oLogin = new XIAOMI.app.miniLogin();
+            oLogin.init();
+
+            // 搜索
+            XIAOMI.app.search.init();
+
+            // miniCart
+            XIAOMI.app.miniCart.init();
+            // 更新miniCart数量
+            XIAOMI.app.updateMiniCart();
+
+            // 商品分类导航
+            XIAOMI.app.navMenus.init($('.J_menuNavMain'), {
+                menuSelector: '.nav-main-item',
+                submenuSelector: '.nav-main-children',
+                effect: 'toggle',
+                triggerEvent: 'hover'
+            });
+            XIAOMI.app.navCategory.init();
+
+            // 绑定尾部公共事件
+            XIAOMI.app.footer.init();
+        });
+    </script>

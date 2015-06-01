@@ -1,0 +1,20 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="viewport">
+			<div id="footer" class="footer">
+				<div class="row g_1">
+					<a href="index.php" style="color:#88898D">首页</a>
+					<a href='user.php' style="color:#88898D">{if $smarty.session.user_id gt 0}用户中心{else}会员登录{/if}</a>
+					<a href="flow.php" style="color:#88898D">购物车</a>
+					<a href="./../index.php" style="color:#88898D" id="pc_nav">电脑版</a>
+				</div>
+				<div class="row g_2">
+					<a href="javascript:window.scrollTo(0,0);" style="color:#88898D">返回顶部</a>
+				</div>
+				<div class="row g_3">
+				{foreach from=get_advlist_by_id(5) item=ad name=index_ad}
+					<p>{$ad.ad_code}</p>
+				{/foreach}	
+				</div>
+			</div>
+		</div>
+

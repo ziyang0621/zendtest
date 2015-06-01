@@ -1,0 +1,2218 @@
+body:after {
+	content:url("2013/close.png?130801") url("2013/loading.gif") url("2013/prev.png?130801") url("2013/next.png?130801");
+	display:none
+}
+.lightboxOverlay {
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:9999;
+	background-color:black;
+	filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+	opacity:0.8;
+	display:none
+}
+.lightbox {
+	position:absolute;
+	left:0;
+	width:100%;
+	z-index:10000;
+	text-align:center;
+	line-height:0;
+	font-weight:normal
+}
+.lightbox .lb-image {
+	display:block;
+	height:auto;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-o-border-radius:3px;
+	border-radius:3px
+}
+.lightbox a img {
+	border:none
+}
+.lb-outerContainer {
+	position:relative;
+	background-color:white;
+	*zoom:1;
+	width:250px;
+	height:250px;
+	margin:0 auto;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-ms-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px
+}
+.lb-outerContainer:after {
+	content:"";
+	display:table;
+	clear:both
+}
+.lb-container {
+	padding:4px
+}
+.lb-loader {
+	position:absolute;
+	top:43%;
+	left:0%;
+	height:25%;
+	width:100%;
+	text-align:center;
+	line-height:0
+}
+.lb-cancel {
+	display:block;
+	width:32px;
+	height:32px;
+	margin:0 auto;
+	background:url("2013/loading.gif") no-repeat
+}
+.lb-nav {
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	z-index:10
+}
+.lb-container>.nav {
+	left:0
+}
+.lb-nav a {
+	outline:none
+}
+.lb-prev,.lb-next {
+	width:49%;
+	height:100%;
+	cursor:pointer;
+	display:block
+}
+.lb-prev {
+	left:0;
+	float:left
+}
+.lb-prev:hover {
+	background:url("2013/prev.png?130801") left 48% no-repeat
+}
+.lb-next {
+	right:0;
+	float:right
+}
+.lb-next:hover {
+	background:url("2013/next.png?130801") right 48% no-repeat
+}
+.lb-dataContainer {
+	margin:0 auto;
+	padding-top:5px;
+	*zoom:1;
+	width:100%;
+	-moz-border-radius-bottomleft:4px;
+	-webkit-border-bottom-left-radius:4px;
+	border-bottom-left-radius:4px;
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;
+	border-bottom-right-radius:4px
+}
+.lb-dataContainer:after {
+	content:"";
+	display:table;
+	clear:both
+}
+.lb-data {
+	padding:0 4px;
+	color:#bbb
+}
+.lb-data .lb-details {
+	width:85%;
+	float:left;
+	text-align:left;
+	line-height:1.1em
+}
+.lb-data .lb-caption {
+	font-size:13px;
+	font-weight:bold;
+	line-height:1em
+}
+.lb-data .lb-number {
+	display:block;
+	clear:left;
+	padding-bottom:1em;
+	font-size:12px;
+	color:#999;
+	opacity:0;
+	filter:alpha(opacity=0)
+}
+.lb-data .lb-close {
+	position:absolute;
+	top:-35px;
+	right:10px;
+	display:block;
+	width:30px;
+	height:30px;
+	background:url("2013/close.png?130801") top right no-repeat;
+	text-align:right;
+	outline:none;
+	filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+	opacity:0.7
+}
+.lb-data .lb-close:hover {
+	cursor:pointer;
+	filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	opacity:1
+}
+.ahz-content-params {
+	background-color:#fff;
+	overflow:hidden;
+	-moz-border-radius-bottomleft:5px;
+	-moz-border-radius-bottomright:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px
+}
+.ahz-content-params .form {
+	margin:0px;
+	padding:0px;
+	border-bottom:1px solid #e6e4e3
+}
+.ahz-content-params .form dt {
+	float:left;
+	width:144px;
+	font-size:14px;
+	line-height:16px;
+	font-weight:700;
+	border-top:1px solid #e6e4e3;
+	padding-top:20px;
+	color:#333;
+	padding-left:20px
+}
+.ahz-content-params .form dd {
+	width:1045px;
+	float:left;
+	border-top:1px solid #e6e4e3;
+	border-left:1px solid #e6e4e3;
+	padding-top:20px;
+	padding-left:30px;
+	margin-left:0px;
+	padding-bottom:20px;
+	background-color:#f9f9f9
+}
+.ahz-content-params .form dd ul {
+	padding:0px;
+	margin:0px;
+	font-size:14px;
+	list-style-type:none
+}
+.ahz-content-params .form dd ul li {
+	line-height:24px;
+	height:24px
+}
+.ahz-content-params .form dd ul li b {
+	display:inline-block;
+	width:200px;
+	height:24px;
+	line-height:24px;
+	font-size:14px;
+	margin:0px;
+	padding:0px
+}
+.ahz-content-params .form dd ul li span {
+	text-align:center;
+	color:#a3a3a3;
+	line-height:24px;
+	height:24px;
+	display:inline-block
+}
+.ahz-content-params .warn {
+	margin:0px;
+	padding:0px;
+	font-size:12px;
+	padding-top:10px;
+	padding-bottom:10px
+}
+@media (max-width:1260px) {
+	.ahz-content-params .form dd {
+	width:735px
+}
+}.ahz-head {
+	height:50px;
+	margin-top:15px;
+	background-color:#fff;
+	border-bottom:1px solid #e6e4d3
+}
+.ahz-head .ahz-head-leftCon {
+	height:50px;
+	line-height:50px;
+	float:left;
+	margin:0px;
+	padding:0px;
+	color:#434a54;
+	font-size:18px;
+	font-weight:normal
+}
+.ahz-head .ahz-head-rightCon {
+	height:50px;
+	line-height:50px;
+	float:right;
+	font-weight:normal;
+	font-size:14px;
+	color:#333
+}
+.ahz-head .ahz-head-rightCon .bold {
+	color:#f84858;
+	cursor:default
+}
+.ahz-head .ahz-head-rightCon span {
+	display:inline-block;
+	cursor:pointer;
+	padding-left:5px;
+	padding-right:5px;
+	color:#434a54
+}
+.ahz-head .ahz-head-rightCon b {
+	font-weight:normal;
+	font-size:13px;
+	color:#ccd1d9
+}
+.ahz-head .ahz-head-rightCon .f-chanel {
+	display:inline-block;
+	cursor:pointer;
+	padding-left:5px;
+	padding-right:15px;
+	color:#434a54
+}
+.ahz-head .ahz-head-rightCon .f-chanels {
+	display:inline-block;
+	cursor:pointer;
+	padding-left:5px;
+	padding-right:5px;
+	color:#434a54
+}
+.ahz-head .ahz-head-rightCon .btn {
+	margin-left:5px
+}
+.ahz-head .ahz-head-rightCon span.btn {
+	color:#fff;
+	cursor:default
+}
+.ahz-head .ahz-head-rightCon span.btn:hover {
+	background:#ccd0d8
+}
+.ahz-head .ahz-head-rightCon span.btn:active {
+	background:#ccd0d8;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none
+}
+.pad-container {
+	overflow:hidden
+}
+.pad-container h1,.pad-container h2,.pad-container h3,.pad-container h4,.pad-container p,.pad-container ul {
+	margin:0px;
+	padding:0px;
+	font-weight:normal
+}
+.pad-feature-font .title {
+	font-size:40px;
+	color:#333;
+	line-height:40px
+}
+.pad-feature-font .title-descp {
+	font-size:30px;
+	color:#8c8c8c;
+	margin-top:15px;
+	line-height:40px
+}
+.pad-feature-font .descp {
+	font-size:16px;
+	color:#333;
+	margin-top:30px;
+	line-height:30px
+}
+.pad-feature-font .descp a {
+	color:#ff4a00
+}
+.pad-feature-font .more {
+	margin-top:15px
+}
+.pad-feature-font .more a {
+	color:#ff4a00
+}
+.pad-design-font .title {
+	font-size:40px;
+	color:#333;
+	line-height:40px
+}
+.pad-design-font .title-descp {
+	font-size:30px;
+	color:#8c8c8c;
+	margin-top:20px;
+	line-height:50px
+}
+.pad-design-font .descp {
+	font-size:16px;
+	color:#333;
+	margin-top:30px
+}
+.pad-design-font .more {
+	margin-top:15px
+}
+.pad-design-font .more a {
+	color:#ff4a00
+}
+.pad-duokan-font .title {
+	font-size:40px;
+	color:#333;
+	line-height:50px
+}
+.pad-duokan-font .title-descp {
+	font-size:40px;
+	color:#8c8c8c;
+	margin-top:15px;
+	line-height:40px
+}
+.pad-duokan-font .descp {
+	font-size:16px;
+	color:#6d6d6d;
+	margin-top:20px;
+	line-height:30px
+}
+.pad-duokan-font .more {
+	margin-top:15px
+}
+.pad-duokan-font .more a {
+	color:#ff4a00
+}
+.pad-function-font .title {
+	font-size:40px;
+	color:#333;
+	line-height:40px
+}
+.pad-function-font .title-descp {
+	font-size:40px;
+	color:#8c8c8c;
+	margin-top:10px;
+	line-height:40px
+}
+.pad-function-font .descp {
+	font-size:16px;
+	color:#333;
+	margin-top:20px;
+	line-height:30px
+}
+.pad-function-font .more {
+	margin-top:15px
+}
+.pad-function-font .more a {
+	color:#ff4a00
+}
+.pad-miui-font .title {
+	font-size:40px;
+	color:#333;
+	line-height:40px
+}
+.pad-miui-font .title-descp {
+	font-size:40px;
+	color:#8c8c8c;
+	margin-top:10px;
+	line-height:40px
+}
+.pad-miui-font .descp {
+	font-size:16px;
+	color:#333;
+	margin-top:20px;
+	line-height:30px
+}
+.pad-miui-font .more {
+	margin-top:15px
+}
+.pad-miui-font .more a {
+	color:#ff4a00
+}
+.border {
+	width:1240px;
+	margin:0 auto;
+	border-bottom:1px solid #dfdfdf;
+	height:0px
+}
+.pad-feature .pad-feature-head {
+	text-align:center;
+	height:880px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-1.jpg');
+	background-image:-webkit-image-set(url('mipad/p-1.jpg') 1x,url('mipad/p-1_2x.jpg') 2x)
+}
+.pad-feature .pad-feature-head .title {
+	margin-top:70px;
+	height:127px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-79.png');
+	background-image:-webkit-image-set(url('mipad/p-79.png') 1x,url('mipad/p-79_2x.png') 2x)
+}
+.pad-feature .pad-feature-head .descp {
+	font-size:14px;
+	color:#8c8c8c;
+	margin-top:10px
+}
+.pad-feature .pad-feature-head .price {
+	padding-left:72px;
+	font-size:15px;
+	margin-top:25px;
+	color:#333
+}
+.pad-feature .pad-feature-head .price img {
+	width:55px
+}
+.pad-feature .pad-feature-head .price b {
+	vertical-align:-2px
+}
+.pad-feature .pad-feature-head .more {
+	margin-top:10px
+}
+.pad-feature .pad-feature-head .more a {
+	color:#ff4a00
+}
+.pad-feature .pad-feature-screen {
+	text-align:center;
+	background-color:#f3f3f3;
+	overflow:hidden;
+	height:1065px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-2.jpg');
+	background-image:-webkit-image-set(url('mipad/p-2.jpg') 1x,url('mipad/p-2_2x.jpg') 2x)
+}
+.pad-feature .pad-feature-screen .title {
+	margin-top:70px
+}
+.pad-feature .pad-feature-screen .descp {
+	width:744px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-feature .pad-feature-gpu {
+	text-align:center;
+	overflow:hidden;
+	height:1115px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-3.jpg');
+	background-image:-webkit-image-set(url('mipad/p-3.jpg') 1x,url('mipad/p-3_2x.jpg') 2x)
+}
+.pad-feature .pad-feature-gpu .title {
+	margin-top:70px
+}
+.pad-feature .pad-feature-gpu .descp {
+	width:760px;
+	margin:0 auto;
+	margin-top:20px;
+	line-height:30px
+}
+.pad-feature .pad-feature-readsurf {
+	text-align:center;
+	height:955px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-80.jpg');
+	background-image:-webkit-image-set(url('mipad/p-80.jpg') 1x,url('mipad/p-80_2x.jpg') 2x)
+}
+.pad-feature .pad-feature-readsurf .title {
+	margin-top:70px
+}
+.pad-feature .pad-feature-readsurf .descp {
+	width:870px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-feature .pad-feature-page {
+	text-align:center;
+	overflow:hidden;
+	height:900px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-81.jpg');
+	background-image:-webkit-image-set(url('mipad/p-81.jpg') 1x,url('mipad/p-81_2x.jpg') 2x);
+	background-color:#f3f3f3
+}
+.pad-feature .pad-feature-page .title {
+	margin-top:70px
+}
+.pad-feature .pad-feature-page .descp {
+	width:870px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-feature .pad-feature-office {
+	text-align:center;
+	overflow:hidden;
+	height:910px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-51.jpg');
+	background-image:-webkit-image-set(url('mipad/p-51.jpg') 1x,url('mipad/p-51_2x.jpg') 2x)
+}
+.pad-feature .pad-feature-office .title {
+	margin-top:70px
+}
+.pad-feature .pad-feature-office .descp {
+	width:870px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-feature .pad-feature-color {
+	text-align:center;
+	background-color:#f3f3f3;
+	overflow:hidden;
+	height:789px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-4.jpg');
+	background-image:-webkit-image-set(url('mipad/p-4.jpg') 1x,url('mipad/p-4_2x.jpg') 2x)
+}
+.pad-feature .pad-feature-color .title {
+	margin-top:70px
+}
+.pad-feature .pad-feature-color .descp {
+	line-height:30px;
+	width:750px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-feature .pad-feature-tt {
+	height:940px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-105.jpg');
+	background-image:-webkit-image-set(url('mipad/p-105.jpg') 1x,url('mipad/p-105_2x.jpg') 2x)
+}
+.pad-feature .pad-feature-tt .info {
+	position:absolute;
+	top:79px;
+	left:63px;
+	width:435px
+}
+.pad-feature .pad-feature-tt .container {
+	position:relative
+}
+.pad-feature .pad-feature-choose {
+	text-align:center;
+	overflow:hidden;
+	height:890px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-83.jpg');
+	background-image:-webkit-image-set(url('mipad/p-83.jpg') 1x,url('mipad/p-83_2x.jpg') 2x)
+}
+.pad-feature .pad-feature-choose .title {
+	margin-top:70px
+}
+.pad-feature .pad-feature-wireless {
+	position:relative
+}
+.pad-feature .pad-feature-wireless .container {
+	position:relative;
+	border-bottom:1px solid #dfdfdf;
+	height:795px
+}
+.pad-feature .pad-feature-wireless .container .info-img {
+	position:absolute;
+	left:63px;
+	bottom:159px
+}
+.pad-feature .pad-feature-wireless .container .info-img img {
+	width:311px
+}
+.pad-feature .pad-feature-wireless .container .info-img-b {
+	position:absolute;
+	bottom:0px;
+	left:620px
+}
+.pad-feature .pad-feature-wireless .info {
+	position:absolute;
+	top:150px;
+	left:63px;
+	text-align:left;
+	width:550px
+}
+.pad-feature .pad-feature-power {
+	height:405px;
+	background-repeat:no-repeat;
+	background-position:top left;
+	background-image:url('mipad/p-7.jpg');
+	background-image:-webkit-image-set(url('mipad/p-7.jpg') 1x,url('mipad/p-7_2x.jpg') 2x);
+	position:relative
+}
+.pad-feature .pad-feature-power .info {
+	position:absolute;
+	text-align:left;
+	top:75px;
+	left:430px
+}
+.pad-feature .pad-feature-miui {
+	text-align:center;
+	overflow:hidden;
+	background-color:#f3f3f3;
+	height:1025px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-8.jpg');
+	background-image:-webkit-image-set(url('mipad/p-8.jpg') 1x,url('mipad/p-8_2x.jpg') 2x)
+}
+.pad-feature .pad-feature-miui .title {
+	margin-top:70px
+}
+.pad-feature .pad-feature-miui .descp {
+	width:870px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-feature .pad-feature-work {
+	height:835px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-9.jpg');
+	background-image:-webkit-image-set(url('mipad/p-9.jpg') 1x,url('mipad/p-9_2x.jpg') 2x);
+	background-color:#f3f3f3;
+	text-align:center;
+	overflow:hidden
+}
+.pad-feature .pad-feature-work .title {
+	margin-top:70px
+}
+.pad-feature .pad-feature-work .descp {
+	width:870px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-feature .pad-feature-save {
+	height:730px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-82.jpg');
+	background-image:-webkit-image-set(url('mipad/p-82.jpg') 1x,url('mipad/p-82_2x.jpg') 2x);
+	text-align:center;
+	overflow:hidden
+}
+.pad-feature .pad-feature-save .title {
+	margin-top:70px
+}
+.pad-feature .pad-feature-save .descp {
+	width:745px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-design .pad-design-head {
+	text-align:center;
+	height:749px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-10.jpg');
+	background-image:-webkit-image-set(url('mipad/p-10.jpg') 1x,url('mipad/p-10_2x.jpg') 2x)
+}
+.pad-design .pad-design-head .title {
+	margin-top:70px;
+	height:133px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-84.png');
+	background-image:-webkit-image-set(url('mipad/p-84.png') 1x,url('mipad/p-84_2x.png') 2x)
+}
+.pad-design .pad-design-head .descp {
+	font-size:16px;
+	color:#333;
+	line-height:25px;
+	margin:0 auto;
+	margin-top:20px;
+	width:745px
+}
+.pad-design .pad-design-profile {
+	height:650px;
+	overflow:hidden;
+	background-color:#7ddeff
+}
+.pad-design .pad-design-profile .pad-design-blue {
+	height:648px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-11.jpg');
+	background-image:-webkit-image-set(url('mipad/p-11.jpg') 1x,url('mipad/p-11_2x.jpg') 2x);
+	-webkit-transition:1s margin-top linear;
+	-moz-transition:1s margin-top linear;
+	transition:1s margin-top linear
+}
+.pad-design .pad-design-size {
+	text-align:center
+}
+.pad-design .pad-design-size .title {
+	margin-top:70px
+}
+.pad-design .pad-design-size .size-img {
+	margin-top:10px
+}
+.pad-design .pad-design-size .size-img img {
+	width:1240px;
+	height:305px
+}
+.pad-design .pad-design-size .descp {
+	margin:0 auto;
+	margin-top:30px;
+	width:745px;
+	line-height:25px
+}
+.pad-design .pad-design-size .size-num-img {
+	text-align:center
+}
+.pad-design .pad-design-size .size-num-img img {
+	width:497px;
+	height:168px
+}
+.pad-design .pad-design-green {
+	height:650px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-14.jpg');
+	background-image:-webkit-image-set(url('mipad/p-14.jpg') 1x,url('mipad/p-14_2x.jpg') 2x)
+}
+.pad-design .pad-design-protect {
+	text-align:center;
+	padding-bottom:70px
+}
+.pad-design .pad-design-protect .title {
+	margin-top:70px
+}
+.pad-design .pad-design-protect .protect-img img {
+	width:1240px;
+	height:434px
+}
+.pad-design .pad-design-protect .descp {
+	margin:0 auto;
+	width:745px
+}
+.pad-design .pad-design-pink {
+	height:645px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-16.jpg');
+	background-image:-webkit-image-set(url('mipad/p-16.jpg') 1x,url('mipad/p-16_2x.jpg') 2x)
+}
+.pad-design .pad-design-loud {
+	text-align:center;
+	padding-bottom:70px
+}
+.pad-design .pad-design-loud .title {
+	margin-top:70px
+}
+.pad-design .pad-design-loud .loud-img {
+	height:460px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-17.jpg');
+	background-image:-webkit-image-set(url('mipad/p-17.jpg') 1x,url('mipad/p-17_2x.jpg') 2x)
+}
+.pad-design .pad-design-yellow {
+	height:648px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-75.jpg');
+	background-image:-webkit-image-set(url('mipad/p-75.jpg') 1x,url('mipad/p-75_2x.jpg') 2x)
+}
+.pad-design .pad-design-detail {
+	text-align:center
+}
+.pad-design .pad-design-detail .title {
+	margin-top:70px
+}
+.pad-design .pad-design-detail .detail-list {
+	margin:0 auto;
+	margin-top:70px;
+	list-style-type:none;
+	width:1240px;
+	text-align:center
+}
+.pad-design .pad-design-detail .detail-list li {
+	float:left;
+	width:410px;
+	overflow:hidden;
+	height:360px;
+	border-left:1px solid #dfdfdf
+}
+.pad-design .pad-design-detail .detail-list li h3 {
+	font-size:24px;
+	color:#333
+}
+.pad-design .pad-design-detail .detail-list li p {
+	margin-top:20px;
+	font-size:14px;
+	line-height:25px;
+	color:#6d6d6d
+}
+.pad-design .pad-design-detail .detail-list .first {
+	border-left:none
+}
+.pad-design .pad-design-detail .detail-list .first img {
+	width:205px;
+	height:210px
+}
+.pad-design .pad-design-detail .detail-list .second img {
+	width:209px;
+	height:211px
+}
+.pad-design .pad-design-detail .detail-list .last img {
+	width:204px;
+	height:210px
+}
+.pad-design .pad-design-tt {
+	height:698px
+}
+.pad-design .pad-design-tt .container {
+	position:relative
+}
+.pad-design .pad-design-tt .info {
+	position:absolute;
+	top:180px;
+	left:63px
+}
+.pad-design .pad-design-tt .info .nav-list {
+	margin-top:37px
+}
+.pad-design .pad-design-tt .info .nav-list li {
+	width:35px;
+	border-radius:50%;
+	border:5px solid #fff;
+	margin-right:10px;
+	float:left
+}
+.pad-design .pad-design-tt .info .nav-list .bold {
+	border:5px solid #ccc
+}
+.pad-design .pad-design-percent {
+	height:650px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-19.jpg');
+	background-image:-webkit-image-set(url('mipad/p-19.jpg') 1x,url('mipad/p-19_2x.jpg') 2x);
+	position:relative;
+	background-color:#f3f3f3
+}
+.pad-design .pad-design-percent .container {
+	position:relative
+}
+.pad-design .pad-design-percent .info {
+	position:absolute;
+	top:100px;
+	left:60px
+}
+.pad-duokan .pad-duokan-head {
+	overflow:hidden;
+	height:1050px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-20.jpg');
+	background-image:-webkit-image-set(url('mipad/p-20.jpg') 1x,url('mipad/p-20_2x.jpg') 2x)
+}
+.pad-duokan .pad-duokan-head .title {
+	margin-top:70px;
+	height:120px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-100.png');
+	background-image:-webkit-image-set(url('mipad/p-100.png') 1x,url('mipad/p-100_2x.png') 2x)
+}
+.pad-duokan .pad-duokan-head .descp {
+	text-align:center;
+	font-size:16px;
+	color:#333;
+	margin:0 auto;
+	margin-top:20px;
+	line-height:30px;
+	width:745px
+}
+.pad-duokan .pad-duokan-city {
+	height:720px;
+	position:relative
+}
+.pad-duokan .pad-duokan-city .info {
+	position:absolute;
+	top:122px;
+	left:745px;
+	width:370px
+}
+.pad-duokan .pad-duokan-city .city-img {
+	position:absolute;
+	top:0px;
+	left:0px
+}
+.pad-duokan .pad-duokan-list {
+	text-align:center;
+	position:relative;
+	height:1445px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-101.jpg');
+	background-image:-webkit-image-set(url('mipad/p-101.jpg') 1x,url('mipad/p-101_2x.jpg') 2x)
+}
+.pad-duokan .pad-duokan-list .title {
+	margin-top:70px
+}
+.pad-duokan .pad-duokan-list .descp {
+	width:745px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-duokan .pad-duokan-style {
+	text-align:center;
+	position:relative;
+	height:835px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-102.jpg');
+	background-image:-webkit-image-set(url('mipad/p-102.jpg') 1x,url('mipad/p-102_2x.jpg') 2x)
+}
+.pad-duokan .pad-duokan-style .title {
+	margin-top:70px
+}
+.pad-duokan .pad-duokan-style .descp {
+	width:745px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-duokan .pad-duokan-pdf {
+	height:645px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-113.jpg');
+	background-image:-webkit-image-set(url('mipad/p-113.jpg') 1x,url('mipad/p-113_2x.jpg') 2x);
+	position:relative
+}
+.pad-duokan .pad-duokan-pdf .container {
+	position:relative
+}
+.pad-duokan .pad-duokan-pdf .info {
+	position:absolute;
+	top:100px;
+	left:125px
+}
+.pad-duokan .pad-duokan-pdf .info .descp {
+	width:350px
+}
+.pad-duokan .pad-duokan-readnote {
+	position:relative;
+	height:670px
+}
+.pad-duokan .pad-duokan-readnote .info {
+	position:absolute;
+	top:140px;
+	left:680px;
+	width:540px
+}
+.pad-duokan .pad-duokan-readnote .info .descp {
+	width:440px
+}
+.pad-duokan .pad-duokan-readnote .note-img {
+	position:absolute;
+	bottom:0px;
+	left:-100px
+}
+.pad-duokan .pad-duokan-readnote .note-img img {
+	width:726px;
+	height:659px
+}
+.pad-duokan .pad-duokan-wifi {
+	height:910px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-26.jpg');
+	background-image:-webkit-image-set(url('mipad/p-26.jpg') 1x,url('mipad/p-26_2x.jpg') 2x);
+	position:relative
+}
+.pad-duokan .pad-duokan-wifi .container {
+	position:relative
+}
+.pad-duokan .pad-duokan-wifi .info {
+	position:absolute;
+	top:140px;
+	left:60px
+}
+.pad-duokan .pad-duokan-wifi .info .descp {
+	width:410px
+}
+.pad-duokan .pad-duokan-sync {
+	position:relative
+}
+.pad-duokan .pad-duokan-sync .container {
+	position:relative;
+	height:825px;
+	background-repeat:no-repeat;
+	background-position:50px bottom;
+	background-image:url('mipad/p-27.jpg');
+	background-image:-webkit-image-set(url('mipad/p-27.jpg') 1x,url('mipad/p-27_2x.jpg') 2x)
+}
+.pad-duokan .pad-duokan-sync .info {
+	position:absolute;
+	top:155px;
+	left:740px
+}
+.pad-duokan .pad-duokan-time {
+	text-align:center;
+	height:740px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-104.jpg');
+	background-image:-webkit-image-set(url('mipad/p-104.jpg') 1x,url('mipad/p-104_2x.jpg') 2x)
+}
+.pad-duokan .pad-duokan-time .title {
+	margin-top:70px
+}
+.pad-duokan .pad-duokan-time .descp {
+	width:620px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-duokan .pad-duokan-history {
+	text-align:center;
+	height:950px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-28.jpg');
+	background-image:-webkit-image-set(url('mipad/p-28.jpg') 1x,url('mipad/p-28_2x.jpg') 2x)
+}
+.pad-duokan .pad-duokan-history .title {
+	margin-top:70px
+}
+.pad-duokan .pad-duokan-history .descp {
+	width:620px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-function .pad-function-head {
+	height:745px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-29.jpg');
+	background-image:-webkit-image-set(url('mipad/p-29.jpg') 1x,url('mipad/p-29_2x.jpg') 2x)
+}
+.pad-function .pad-function-head .container {
+	position:relative
+}
+.pad-function .pad-function-head .info {
+	position:absolute;
+	top:380px;
+	left:190px;
+	color:#333
+}
+.pad-function .pad-function-head .info img {
+	width:55px
+}
+.pad-function .pad-function-head .info b {
+	vertical-align:-2px
+}
+.pad-function .pad-function-ips {
+	text-align:center;
+	height:925px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-62.jpg');
+	background-image:-webkit-image-set(url('mipad/p-62.jpg') 1x,url('mipad/p-62_2x.jpg') 2x);
+	background-color:#f3f3f3;
+	overflow:hidden
+}
+.pad-function .pad-function-ips .title {
+	margin-top:70px
+}
+.pad-function .pad-function-ips .descp {
+	width:745px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-function .pad-function-cpu {
+	height:1095px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-31.jpg');
+	background-image:-webkit-image-set(url('mipad/p-31.jpg') 1x,url('mipad/p-31_2x.jpg') 2x)
+}
+.pad-function .pad-function-cpu .container {
+	position:relative
+}
+.pad-function .pad-function-cpu .container .info {
+	position:absolute;
+	top:73px;
+	left:63px
+}
+.pad-function .pad-function-cpu .container .info .descp {
+	width:705px
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-nav {
+	margin-top:30px;
+	list-style-type:none;
+	text-align:center
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-nav li {
+	float:left;
+	-webkit-transition:opacity .4s cubic-bezier(0,0,.25,1);
+	-moz-transition:opacity .4s cubic-bezier(0,0,.25,1);
+	-o-transition:opacity .4s cubic-bezier(0,0,.25,1);
+	transition:opacity .4s cubic-bezier(0,0,.25,1)
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-nav .prev {
+	font-size:16px;
+	line-height:20px;
+	color:#333;
+	width:80px;
+	cursor:pointer;
+	opacity:0
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-nav .prev:hover {
+	color:#90ce36
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-nav .mid {
+	line-height:20px;
+	font-size:16px;
+	color:#333;
+	text-align:center;
+	width:400px;
+	height:40px
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-nav .next {
+	font-size:16px;
+	line-height:20px;
+	color:#333;
+	width:80px;
+	cursor:pointer;
+	opacity:0
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-nav .next:hover {
+	color:#90ce36
+}
+.pad-function .pad-function-cpu .container .info:hover .pad-cpu-nav .prev {
+	opacity:1
+}
+.pad-function .pad-function-cpu .container .info:hover .pad-cpu-nav .next {
+	opacity:1
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-show {
+	list-style-type:none
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-show li {
+	margin-top:20px;
+	height:60px;
+	line-height:60px;
+	color:#fff;
+	-webkit-transition:width .4s cubic-bezier(0,0,.25,1);
+	-moz-transition:width .4s cubic-bezier(0,0,.25,1);
+	-o-transition:width .4s cubic-bezier(0,0,.25,1);
+	transition:width .4s cubic-bezier(0,0,.25,1)
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-show li .leftpart {
+	float:left;
+	height:60px;
+	margin-left:20px
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-show li .rightpart {
+	float:right;
+	height:60px;
+	margin-right:20px
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-show .green {
+	width:0px;
+	background-color:#90ce36
+}
+.pad-function .pad-function-cpu .container .info .pad-cpu-show .gray {
+	width:0px;
+	background-color:#c3c3c3
+}
+.pad-function .pad-function-cpu .container .info .show_a .green {
+	width:540px
+}
+.pad-function .pad-function-cpu .container .info .show_a .gray {
+	width:350px
+}
+.pad-function .pad-function-cpu .container .info .show_b .green {
+	width:540px
+}
+.pad-function .pad-function-cpu .container .info .show_b .gray {
+	width:320px
+}
+.pad-function .pad-function-cpu .container .info .show_c .green {
+	width:540px
+}
+.pad-function .pad-function-cpu .container .info .show_c .gray {
+	width:310px
+}
+.pad-function .pad-function-cpu .container .info .show_d .green {
+	width:540px
+}
+.pad-function .pad-function-cpu .container .info .show_d .gray {
+	width:270px
+}
+.pad-function .pad-function-cpu .container .info .show_e .green {
+	width:540px
+}
+.pad-function .pad-function-cpu .container .info .show_e .gray {
+	width:260px
+}
+.pad-function .pad-function-gpu {
+	background-color:#f3f3f3
+}
+.pad-function .pad-function-gpu .container {
+	height:995px;
+	position:relative;
+	background-repeat:no-repeat;
+	background-position:left bottom;
+	background-image:url('mipad/p-32.jpg');
+	background-image:-webkit-image-set(url('mipad/p-32.jpg') 1x,url('mipad/p-32_2x.jpg') 2x)
+}
+.pad-function .pad-function-gpu .container .info {
+	position:absolute;
+	top:135px;
+	left:620px
+}
+.pad-function .pad-function-gpu .container .info .saveBlock {
+	list-style-type:none;
+	overflow:hidden
+}
+.pad-function .pad-function-gpu .container .info .saveBlock li .sb-logo {
+	margin-top:40px;
+	height:55px;
+	background-repeat:no-repeat;
+	background-position:left bottom;
+	background-image:url('mipad/p-33.jpg');
+	background-image:-webkit-image-set(url('mipad/p-33.jpg') 1x,url('mipad/p-33_2x.jpg') 2x)
+}
+.pad-function .pad-function-gpu .container .info .saveBlock li .sb-logo-save {
+	background-image:url('mipad/p-34.jpg');
+	background-image:-webkit-image-set(url('mipad/p-34.jpg') 1x,url('mipad/p-34_2x.jpg') 2x)
+}
+.pad-function .pad-function-gpu .container .info .saveBlock li .sb-title {
+	margin-top:10px;
+	font-size:18px;
+	color:#333
+}
+.pad-function .pad-function-gpu .container .info .saveBlock li .sb-descp {
+	margin-top:10px;
+	font-size:14px;
+	color:#333;
+	line-height:25px
+}
+.pad-function .pad-function-power {
+	height:990px;
+	background-repeat:no-repeat;
+	background-position:right bottom;
+	background-image:url('mipad/p-36.jpg');
+	background-image:-webkit-image-set(url('mipad/p-36.jpg') 1x,url('mipad/p-36_2x.jpg') 2x);
+	position:relative
+}
+.pad-function .pad-function-power .container {
+	position:relative
+}
+.pad-function .pad-function-power .info {
+	position:absolute;
+	top:85px;
+	left:63px;
+	overflow:hidden
+}
+.pad-function .pad-function-power .info .descp {
+	width:620px
+}
+.pad-function .pad-function-power .info .power-img {
+	margin-top:20px
+}
+.pad-function .pad-function-power .info .power-img img {
+	width:198px;
+	height:390px
+}
+.pad-function .pad-function-power .info .intension {
+	margin-top:130px;
+	font-size:14px;
+	color:#8c8c8c;
+	line-height:30px
+}
+.pad-function .pad-function-power .info .intension i {
+	color:#f32f39
+}
+.pad-function .pad-function-camera {
+	height:860px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-37.jpg');
+	background-image:-webkit-image-set(url('mipad/p-37.jpg') 1x,url('mipad/p-37_2x.jpg') 2x);
+	position:relative
+}
+.pad-function .pad-function-camera .container {
+	position:relative
+}
+.pad-function .pad-function-camera .container .info {
+	position:absolute;
+	top:230px;
+	left:63px
+}
+.pad-function .pad-function-camera .container .info .title-descp {
+	line-height:50px
+}
+.pad-function .pad-function-camera .container .info .descp {
+	width:545px
+}
+.pad-function .pad-function-camera .container .info .img-title {
+	margin-top:40px
+}
+.pad-function .pad-function-camera .container .info .camera-img-list {
+	width:450px;
+	list-style-type:none
+}
+.pad-function .pad-function-camera .container .info .camera-img-list li {
+	margin-right:20px;
+	margin-top:20px;
+	float:left
+}
+.pad-function .pad-function-protocl {
+	text-align:center;
+	overflow:hidden;
+	height:730px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-39.jpg');
+	background-image:-webkit-image-set(url('mipad/p-39.jpg') 1x,url('mipad/p-39_2x.jpg') 2x)
+}
+.pad-function .pad-function-protocl .title {
+	margin-top:70px
+}
+.pad-function .pad-function-protocl .descp {
+	width:745px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-function .pad-function-more {
+	height:1075px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-40.jpg');
+	background-image:-webkit-image-set(url('mipad/p-40.jpg') 1x,url('mipad/p-40_2x.jpg') 2x);
+	text-align:center;
+	overflow:hidden
+}
+.pad-function .pad-function-more .title {
+	margin-top:415px
+}
+.pad-function .pad-function-app {
+	text-align:center;
+	position:relative
+}
+.pad-function .pad-function-app .title {
+	margin-top:80px
+}
+.pad-function .pad-function-app .app-img-list {
+	padding-left:220px;
+	width:4500px;
+	list-style-type:none;
+	-webkit-transition:-webkit-transform .4s cubic-bezier(0,0,.25,1);
+	-moz-transition:-webkit-transform .4s cubic-bezier(0,0,.25,1);
+	-o-transition:-webkit-transform .4s cubic-bezier(0,0,.25,1);
+	transition:-webkit-transform .4s cubic-bezier(0,0,.25,1)
+}
+.pad-function .pad-function-app .app-img-list li {
+	float:left;
+	text-align:center;
+	width:804px
+}
+.pad-function .pad-function-app .app-img-list li h2 {
+	font-size:18px;
+	color:#333;
+	line-height:20px
+}
+.pad-function .pad-function-app .app-img-list li p {
+	margin-top:10px;
+	font-size:14px;
+	color:#8c8c8c;
+	line-height:20px
+}
+.pad-function .pad-function-app .app-img-nav {
+	margin:0 auto;
+	margin-top:50px;
+	width:155px;
+	list-style-type:none
+}
+.pad-function .pad-function-app .app-img-nav li {
+	float:left;
+	width:10px;
+	height:10px;
+	border-radius:50%;
+	margin-right:10px;
+	background-color:#c3c3c3;
+	cursor:pointer
+}
+.pad-function .pad-function-app .app-img-nav .bold {
+	background-color:#000;
+	cursor:default
+}
+.pad-function .pad-function-app .app-img-page {
+	position:absolute;
+	top:30%;
+	left:0px;
+	width:1240px
+}
+.pad-function .pad-function-app .app-img-page .prev {
+	position:absolute;
+	left:-300px;
+	top:0;
+	width:300px;
+	height:485px;
+	z-index:1002;
+	-webkit-transition:.25s opacity linear;
+	-moz-transition:.25s opacity linear;
+	transition:.25s opacity linear;
+	opacity:0;
+	cursor:pointer
+}
+.pad-function .pad-function-app .app-img-page .prev b {
+	background-position:50% 50%;
+	background-repeat:no-repeat;
+	background-color:#fff;
+	width:67px;
+	display:block;
+	height:130px;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	background-color:#ebebeb;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-65px;
+	margin-left:-33px
+}
+.pad-function .pad-function-app .app-img-page .prev:hover {
+	opacity:0.8;
+	filter:alpha(opacity=80)
+}
+.pad-function .pad-function-app .app-img-page .next {
+	position:absolute;
+	right:-300px;
+	top:0px;
+	width:300px;
+	height:485px;
+	z-index:1002;
+	-webkit-transition:.25s opacity linear;
+	-moz-transition:.25s opacity linear;
+	transition:.25s opacity linear;
+	opacity:0;
+	cursor:pointer
+}
+.pad-function .pad-function-app .app-img-page .next b {
+	background-position:50%  50%;
+	background-repeat:no-repeat;
+	background-color:#fff;
+	width:67px;
+	display:block;
+	height:130px;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	background-color:#ebebeb;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-65px;
+	margin-left:-33px
+}
+.pad-function .pad-function-app .app-img-page .next:hover {
+	opacity:0.8;
+	filter:alpha(opacity=80)
+}
+.pad-miui .pad-miui-head {
+	text-align:center;
+	height:933px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-44.jpg');
+	background-image:-webkit-image-set(url('mipad/p-44.jpg') 1x,url('mipad/p-44_2x.jpg') 2x)
+}
+.pad-miui .pad-miui-head .title {
+	margin-top:70px;
+	height:130px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-85.png');
+	background-image:-webkit-image-set(url('mipad/p-85.png') 1x,url('mipad/p-85_2x.png') 2x)
+}
+.pad-miui .pad-miui-head .descp {
+	font-size:16px;
+	color:#333;
+	line-height:30px;
+	width:750px;
+	margin:0 auto;
+	margin-top:30px
+}
+.pad-miui .pad-miui-content {
+	height:700px;
+	position:relative
+}
+.pad-miui .pad-miui-content .info {
+	position:absolute;
+	top:115px;
+	left:805px;
+	overflow:hidden;
+	width:375px
+}
+.pad-miui .pad-miui-content .info .pic-title {
+	margin-top:70px;
+	font-size:30px;
+	color:#1dc1f9;
+	line-height:30px
+}
+.pad-miui .pad-miui-content .info .pic-content {
+	margin-top:20px;
+	font-size:14px;
+	color:#333;
+	line-height:25px
+}
+.pad-miui .pad-miui-content .content-img {
+	position:absolute;
+	bottom:0px;
+	left:-105px
+}
+.pad-miui .pad-miui-content .content-img img {
+	width:855px
+}
+.pad-miui .pad-miui-surf {
+	text-align:center;
+	height:966px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-46.jpg');
+	background-image:-webkit-image-set(url('mipad/p-46.jpg') 1x,url('mipad/p-46_2x.jpg') 2x)
+}
+.pad-miui .pad-miui-surf .title {
+	margin-top:70px
+}
+.pad-miui .pad-miui-surf .descp {
+	width:870px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-miui .pad-miui-surf .surf-img img {
+	width:1240px
+}
+.pad-miui .pad-miui-readsurf {
+	height:1195px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-47.jpg');
+	background-image:-webkit-image-set(url('mipad/p-47.jpg') 1x,url('mipad/p-47_2x.jpg') 2x);
+	position:relative
+}
+.pad-miui .pad-miui-readsurf .container {
+	position:relative
+}
+.pad-miui .pad-miui-readsurf .info {
+	position:absolute;
+	top:75px;
+	left:63px
+}
+.pad-miui .pad-miui-readsurf .info .title-descp {
+	line-height:60px
+}
+.pad-miui .pad-miui-readsurf .info .descp {
+	width:340px
+}
+.pad-miui .pad-miui-list {
+	height:770px;
+	position:relative
+}
+.pad-miui .pad-miui-list .info {
+	position:absolute;
+	top:150px;
+	left:63px
+}
+.pad-miui .pad-miui-list .info .descp {
+	width:450px
+}
+.pad-miui .pad-miui-list .info .nav-btn {
+	list-style-type:none;
+	width:408px;
+	border:1px solid #dfdfdf;
+	border-right:none;
+	margin-top:45px
+}
+.pad-miui .pad-miui-list .info .nav-btn li {
+	float:left;
+	width:101px;
+	text-align:center;
+	height:48px;
+	line-height:48px;
+	font-size:14px;
+	color:#333;
+	cursor:pointer;
+	border-right:1px solid #dfdfdf
+}
+.pad-miui .pad-miui-list .info .nav-btn .bold {
+	cursor:default;
+	background-color:#f3f3f3
+}
+.pad-miui .pad-miui-list .info .nav-font {
+	list-style-type:none
+}
+.pad-miui .pad-miui-list .info .list-title {
+	margin-top:240px;
+	font-size:18px;
+	color:#333
+}
+.pad-miui .pad-miui-list .info .list-info {
+	margin-top:20px;
+	font-size:14px;
+	color:#333
+}
+.pad-miui .pad-miui-list .list-img {
+	position:absolute;
+	bottom:0px;
+	right:0px
+}
+.pad-miui .pad-miui-list .list-img img {
+	width:682px;
+	height:755px
+}
+.pad-miui .pad-miui-readnote {
+	height:650px;
+	position:relative
+}
+.pad-miui .pad-miui-readnote .info {
+	position:absolute;
+	top:80px;
+	left:740px;
+	width:450px
+}
+.pad-miui .pad-miui-readnote .note-img {
+	position:absolute;
+	left:0px;
+	bottom:0px
+}
+.pad-miui .pad-miui-readnote .note-img img {
+	width:621px
+}
+.pad-miui .pad-miui-video {
+	height:730px;
+	position:relative
+}
+.pad-miui .pad-miui-video .info {
+	position:absolute;
+	top:100px;
+	left:755px;
+	width:425px
+}
+.pad-miui .pad-miui-video .info .title {
+	line-height:50px
+}
+.pad-miui .pad-miui-video .info .miui-font {
+	list-style-type:none
+}
+.pad-miui .pad-miui-video .info .pic-title {
+	font-size:30px;
+	color:#f32f39;
+	line-height:30px;
+	margin-top:55px
+}
+.pad-miui .pad-miui-video .info .pic-content {
+	margin-top:20px;
+	font-size:14px;
+	color:#333;
+	line-height:25px;
+	height:80px
+}
+.pad-miui .pad-miui-video .info .flash-nav {
+	margin-top:40px;
+	list-style-type:none
+}
+.pad-miui .pad-miui-video .info .flash-nav li {
+	width:10px;
+	float:left;
+	margin-right:10px;
+	height:10px;
+	border-radius:50%;
+
+	background-color:#c3c3c3;
+	cursor:pointer
+}
+.pad-miui .pad-miui-video .info .flash-nav .bold {
+	cursor:default;
+	background-color:#333
+}
+.pad-miui .pad-miui-video .miui-img {
+	position:absolute;
+	top:70px;
+	left:-120px;
+	list-style-type:none
+}
+.pad-miui .pad-miui-video .miui-img img {
+	width:847px;
+	height:586px
+}
+.pad-miui .pad-miui-game {
+	text-align:center;
+	padding-bottom:60px
+}
+.pad-miui .pad-miui-game .title {
+	margin-top:70px
+}
+.pad-miui .pad-miui-game .descp {
+	width:620px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-miui .pad-miui-game .game-img-list {
+	list-style-type:none;
+	padding-left:220px;
+	width:4500px;
+	-webkit-transition:-webkit-transform .4s cubic-bezier(0,0,.25,1);
+	-moz-transition:-webkit-transform .4s cubic-bezier(0,0,.25,1);
+	-o-transition:-webkit-transform .4s cubic-bezier(0,0,.25,1);
+	transition:-webkit-transform .4s cubic-bezier(0,0,.25,1)
+}
+.pad-miui .pad-miui-game .game-img-list li {
+	float:left;
+	cursor:pointer
+}
+.pad-miui .pad-miui-game .game-img-list li img {
+	width:806px;
+	height:537px
+}
+.pad-miui .pad-miui-game .move_1 {
+	-webkit-transform:translate3d(0,0,0);
+	-moz-transform:translate3d(0,0,0);
+	-o-transform:translate3d(0,0,0);
+	transform:translate3d(0,0,0)
+}
+.pad-miui .pad-miui-game .move_2 {
+	-webkit-transform:translate3d(-804px,0,0);
+	-moz-transform:translate3d(-804px,0,0);
+	-o-transform:translate3d(-804px,0,0);
+	transform:translate3d(-804px,0,0)
+}
+.pad-miui .pad-miui-game .move_3 {
+	-webkit-transform:translate3d(-1608px,0,0);
+	-moz-transform:translate3d(-1608px,0,0);
+	-o-transform:translate3d(-1608px,0,0);
+	transform:translate3d(-1608px,0,0)
+}
+.pad-miui .pad-miui-game .move_4 {
+	-webkit-transform:translate3d(-2412px,0,0);
+	-moz-transform:translate3d(-2412px,0,0);
+	-o-transform:translate3d(-2412px,0,0);
+	transform:translate3d(-2412px,0,0)
+}
+.pad-miui .pad-miui-game .move_5 {
+	-webkit-transform:translate3d(-3216px,0,0);
+	-moz-transform:translate3d(-3216px,0,0);
+	-o-transform:translate3d(-3216px,0,0);
+	transform:translate3d(-3216px,0,0)
+}
+.pad-miui .pad-miui-game .game-title-nav {
+	margin:0 auto;
+	margin-top:10px;
+	width:620px;
+	position:relative;
+	text-align:left
+}
+.pad-miui .pad-miui-game .game-title-nav .forward {
+	position:absolute;
+	width:620px;
+	top:0px;
+	left:0px;
+	list-style-type:none
+}
+.pad-miui .pad-miui-game .game-title-nav .forward li {
+	width:60px;
+	height:100px;
+	position:absolute;
+	top:0px;
+	cursor:pointer
+}
+.pad-miui .pad-miui-game .game-title-nav .forward li .iconfont {
+	position:absolute;
+	top:20%;
+	color:#6d6d6d;
+	font-size:40px;
+	line-height:40px
+}
+.pad-miui .pad-miui-game .game-title-nav .forward li:hover .iconfont {
+	color:#000
+}
+.pad-miui .pad-miui-game .game-title-nav .forward .next {
+	right:-60px
+}
+.pad-miui .pad-miui-game .game-title-nav .forward .next .iconfont {
+	left:20%
+}
+.pad-miui .pad-miui-game .game-title-nav .forward .prev {
+	left:-60px
+}
+.pad-miui .pad-miui-game .game-title-nav .forward .prev .iconfont {
+	right:20%
+}
+.pad-miui .pad-miui-game .game-title-nav .content {
+	list-style-type:none
+}
+.pad-miui .pad-miui-game .game-title-nav .content li {
+	text-align:center;
+	position:relative
+}
+.pad-miui .pad-miui-game .game-title-nav .content li .game-sml-img {
+	position:absolute;
+	top:0px;
+	left:65px;
+	width:100px;
+	height:100px
+}
+.pad-miui .pad-miui-game .game-title-nav .content li h3 {
+	font-size:24px;
+	color:#333;
+	line-height:30px
+}
+.pad-miui .pad-miui-game .game-title-nav .content li p {
+	margin-top:10px;
+	font-size:12px;
+	color:#333;
+	line-height:20px
+}
+.pad-miui .pad-miui-office {
+	height:800px;
+	text-align:center;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-90.jpg');
+	background-image:-webkit-image-set(url('mipad/p-90.jpg') 1x,url('mipad/p-90_2x.jpg') 2x)
+}
+.pad-miui .pad-miui-office .title {
+	margin-top:70px
+}
+.pad-miui .pad-miui-office .descp {
+	width:645px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-miui .pad-miui-store {
+	text-align:center;
+	height:846px;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-52.jpg');
+	background-image:-webkit-image-set(url('mipad/p-52.jpg') 1x,url('mipad/p-52_2x.jpg') 2x)
+}
+.pad-miui .pad-miui-store .title {
+	margin-top:70px
+}
+.pad-miui .pad-miui-store .descp {
+	width:870px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-miui .pad-miui-apps .list-apps {
+	list-style-type:none
+}
+.pad-miui .pad-miui-apps .list-apps li {
+	float:left;
+	width:410px;
+	height:300px;
+	text-align:center
+}
+.pad-miui .pad-miui-apps .list-apps li .apps-img {
+	margin-top:50px
+}
+.pad-miui .pad-miui-apps .list-apps li .apps-img img {
+	width:112px;
+	height:106px
+}
+.pad-miui .pad-miui-apps .list-apps li .apps-name {
+	margin-top:20px;
+	font-size:18px;
+	color:#6d6d6d;
+	line-height:30px
+}
+.pad-miui .pad-miui-apps .list-apps li .apps-descp {
+	margin-top:10px;
+	font-size:14px;
+	color:#8c8c8c;
+	line-height:25px
+}
+.pad-miui .pad-miui-apps .list-apps li .apps-down {
+	width:120px;
+	height:30px;
+	line-height:30px;
+	margin:0 auto;
+	font-size:14px;
+	color:#6d6d6d;
+	margin-top:10px;
+	display:block;
+	border:1px solid #dfdfdf
+}
+.pad-miui .pad-miui-system {
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url('mipad/p-54.jpg');
+	background-image:-webkit-image-set(url('mipad/p-54.jpg') 1x,url('mipad/p-54_2x.jpg') 2x);
+	height:935px
+}
+.pad-miui .pad-miui-system .container {
+	position:relative
+}
+.pad-miui .pad-miui-system .container .info {
+	position:absolute;
+	top:75px;
+	left:63px
+}
+.pad-miui .pad-miui-system .container .info .descp {
+	width:445px
+}
+.pad-miui .pad-miui-update {
+	text-align:center;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+	background-image:url('mipad/p-55.jpg');
+	background-image:-webkit-image-set(url('mipad/p-55.jpg') 1x,url('mipad/p-55_2x.jpg') 2x);
+	height:699px
+}
+.pad-miui .pad-miui-update .title {
+	margin-top:70px
+}
+.pad-miui .pad-miui-update .descp {
+	width:750px;
+	margin:0 auto;
+	margin-top:20px
+}
+.pad-miui .pad-miui-update .update-img img {
+	width:1240px
+}
+.pad-design .pad-bottom-href,.ahz-content-params .pad-bottom-href {
+	margin-top:0px
+}
+.pad-bottom-href {
+	height:90px;
+	line-height:90px;
+	margin-top:20px
+}
+.pad-bottom-href a {
+	display:block;
+	height:90px;
+	line-height:90px;
+	text-align:center;
+	font-size:24px;
+	color:#333;
+	background-color:#f3f3f3
+}
+.pad-bottom-href a:hover {
+	color:#ff4a00
+}
+ul.pad-bottom-bar {
+	margin:0 auto;
+	list-style-type:none
+}
+ul.pad-bottom-bar li {
+	float:left;
+	width:410px;
+	overflow:hidden;
+	height:436px;
+	border-right:1px solid #dfdfdf;
+	text-align:center
+}
+ul.pad-bottom-bar li .title {
+	font-size:24px;
+	color:#333;
+	line-height:30px;
+	margin-top:20px
+}
+ul.pad-bottom-bar li .title-descp {
+	margin-top:10px;
+	font-size:18px;
+	line-height:25px
+}
+ul.pad-bottom-bar li .content-href {
+	margin-top:25px
+}
+ul.pad-bottom-bar li .content-href a {
+	color:#ff4a00;
+	font-size:18px;
+	line-height:25px
+}
+ul.pad-bottom-bar .last {
+	border-right:none
+}
+@media (max-width:1260px) {
+	.border {
+	width:930px;
+	margin:0 auto;
+	border-bottom:1px solid #dfdfdf
+}
+ul.pad-bottom-bar li {
+	width:306px
+}
+.pad-feature .pad-feature-head .all-pro-img {
+	margin-left:-155px
+}
+.pad-feature .pad-feature-power .info {
+	left:425px
+}
+.pad-feature .pad-feature-miui .miui-img {
+	margin-left:-40px
+}
+.pad-feature .pad-feature-wireless .container {
+	background-position:120% 100%
+}
+.pad-feature .pad-feature-wireless .container .info {
+	left:0px
+}
+.pad-feature .pad-feature-wireless .container .info-img {
+	left:0px
+}
+.pad-feature .pad-feature-wireless .container .info-img-b {
+	left:580px
+}
+.pad-design .pad-design-head .all-pro-img {
+	margin-left:-155px
+}
+.pad-design .pad-design-size .size-img {
+	margin-left:-155px
+}
+.pad-design .pad-design-protect .protect-img {
+	margin-left:-155px
+}
+.pad-design .pad-design-detail .detail-list {
+	width:944px
+}
+.pad-design .pad-design-detail .detail-list li {
+	width:310px
+}
+.pad-function .pad-function-head .container {
+	position:relative
+}
+.pad-function .pad-function-head .info {
+	left:33px
+}
+.pad-function .pad-function-cpu {
+	left:0px
+}
+.pad-function .pad-function-gpu .container {
+	background-position:-100px bottom
+}
+.pad-function .pad-function-gpu .container .info {
+	left:520px
+}
+.pad-function .pad-function-gpu .container .info .title {
+	font-size:32px
+}
+.pad-function .pad-function-gpu .container .info .title-descp {
+	font-size:28px
+}
+.pad-function .pad-function-power {
+	background-position:400px bottom
+}
+.pad-function .pad-function-camera .container .info {
+	left:0px
+}
+.pad-function .pad-function-protocl .pro-img {
+	margin-left:-100px
+}
+.pad-function .pad-function-app .app-img-list {
+	padding-left:55px
+}
+.pad-function .pad-function-app .app-img-page {
+	width:950px
+}
+.pad-function .pad-function-app .app-img-page .prev {
+	left:0px
+}
+.pad-function .pad-function-app .app-img-page .next {
+	right:0px
+}
+.pad-miui .pad-miui-head .head-img {
+	margin-left:-30px
+}
+.pad-miui .pad-miui-content .info {
+	left:555px
+}
+.pad-miui .pad-miui-content .content-img {
+	left:-305px
+}
+.pad-miui .pad-miui-surf .surf-img {
+	margin-left:-155px
+}
+.pad-miui .pad-miui-readsurf .info {
+	left:0px
+}
+.pad-miui .pad-miui-video .miui-img {
+	left:-200px
+}
+.pad-miui .pad-miui-video .info {
+	left:655px;
+	width:402px
+}
+.pad-miui .pad-miui-list .info {
+	left:0px
+}
+.pad-miui .pad-miui-list .list-img {
+	right:-240px
+}
+.pad-miui .pad-miui-readnote .note-img {
+	left:-100px
+}
+.pad-miui .pad-miui-readnote .info {
+	left:540px
+}
+.pad-miui .pad-miui-game .game-img-list {
+	padding-left:60px
+}
+.pad-miui .pad-miui-store .store-img {
+	margin-left:-30px
+}
+.pad-miui .pad-miui-apps .list-apps li {
+	width:310px
+}
+.pad-miui .pad-miui-system .container .info {
+	left:0px
+}
+.pad-miui .pad-miui-update .update-img {
+	margin-left:-100px
+}
+.pad-duokan .pad-duokan-city .city-img {
+	left:-200px
+}
+.pad-duokan .pad-duokan-city .info {
+	left:545px
+}
+.pad-duokan .pad-duokan-list .app-img-list {
+	padding-left:60px
+}
+.pad-duokan .pad-duokan-list .app-img-page {
+	width:950px
+}
+.pad-duokan .pad-duokan-list .app-img-page .prev {
+	left:0px
+}
+.pad-duokan .pad-duokan-list .app-img-page .next {
+	right:0px
+}
+.pad-duokan .pad-duokan-pdf .info {
+	left:-30px
+}
+.pad-duokan .pad-duokan-readnote .info {
+	left:450px
+}
+.pad-duokan .pad-duokan-readnote .note-img {
+	left:-275px
+}
+.pad-duokan .pad-duokan-wifi .info {
+	left:0px
+}
+.pad-duokan .pad-duokan-sync .info {
+	left:580px;
+	width:400px
+}
+.pad-duokan .pad-duokan-sync .container {
+	background-position:-50px bottom
+}
+.pad-duokan .pad-duokan-history .history-img {
+	margin-left:-150px
+}
+}

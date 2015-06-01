@@ -1,0 +1,78 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+.uc-nav-box {
+	padding-bottom:15px;
+	background:#fafafa
+}
+.uc-nav-box h3{
+text-align:left; border:0px; background-color:#FAFAFA;
+}
+.uc-nav-box .box-hd {
+	height:50px;
+	margin:0 30px;
+	border-bottom:1px solid #dfdfdf
+}
+.uc-nav-box .box-hd .title {
+	margin:0;
+	font-size:18px;
+	font-weight:400;
+	line-height:50px;
+	color:#000
+}
+.uc-nav-list {
+	margin:10px 0 0;
+	padding:0;
+	list-style-type:none;
+	font-size:14px
+}
+.uc-nav-list li {
+	position:relative;
+	*zoom:1
+}
+.uc-nav-list li.current a {
+	padding-left:27px;
+	border-left:3px solid #ff4a00;
+	color:#333;
+	background-color:#fafafa
+}
+.uc-nav-list li a {
+	display:block;
+	padding:9px 30px;
+	color:#6d6d6d
+}
+.uc-nav-list li a:hover {
+	color:#ff4a00
+}
+.uc-nav-list li li a {
+	padding-left:50px
+}
+.uc-nav-list .children {
+	margin:0;
+	padding:0;
+	list-style-type:none
+}
+</style>
+
+
+<div class="span4">
+	  <!--{foreach from=$categories item=cat}-->
+        <div class="uc-nav-box">
+          <div class="box-hd">
+            <h3 class="title"><a href="{$cat.url}">{$cat.name|escape:html}</a></h3>
+          </div>
+          <div class="box-bd">
+            <ul class="uc-nav-list">
+			<!--{foreach from=$cat.cat_id item=child}-->
+              <li><a href="{$child.url}">{$child.name|escape:html}</a></li>
+            <!-- {/foreach} -->
+            </ul>
+          </div>
+        </div>
+        <!-- {/foreach} -->
+		
+      </div>
+
+
+<div class="blank5"></div>
+
+

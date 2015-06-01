@@ -1,0 +1,20 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $user_info}
+
+{$lang.hello},<font class="f4_b" style="color:#ff0000; font-weight:bold;">{$user_info.username}</font>, {$lang.welcome_return}！
+<a href="user.php">{$lang.user_center}</a>
+<span class="sep">|</span>
+<a href="user.php?act=logout">{$lang.user_logout}</a>
+
+{else}
+
+ <a style="padding:0px 2px" href="user.php">登录</a>
+ <span class="sep">|</span>
+ <a href="user.php?act=register">注册</a>
+ <span class="sep">|</span>
+ <a href="user.php?act=oath&type=qq"><img src="images/qq_logo_16.png"></a>
+<a href="user.php?act=oath&type=weibo"><img src="images/sina_login_16.png"></a>
+<a href="user.php?act=oath&type=alipay"><img src="images/alipay_logo_16.gif"></a>
+<a href="user.php?act=oath&type=taobao"><img src="images/taobao_logo_16.gif"></a>
+{/if}

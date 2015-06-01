@@ -1,0 +1,134 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="themes/xiaomi/css/base.min.css?2014050501" />
+<script src="themes/xiaomi/js/jquery.js"></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<script type="text/javascript">
+var isWidescreen=screen.width<1200;
+if (isWidescreen){
+document.getElementsByTagName("body")[0].className="w950";
+document.write("<link rel='stylesheet' type='text/css' href='themes/xiaomi/css/980base.css'>");
+}
+</script>
+
+<div class="site-topbar">
+  <div class="container">
+    <div class="topbar-nav">
+      <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+      <a href="{$nav.url}" 
+      <!-- {if $nav.opennew eq 1} -->
+      target="_blank"
+      <!-- {/if} -->
+      >{$nav.name}</a>
+      <!-- {if !$smarty.foreach.nav_top_list.last} -->
+      <span class="sep">|</span>
+      <!-- {/if} -->
+      <!-- {/foreach} -->
+    </div>
+    <div class="topbar-info J_userInfo"> {insert name='member_info'} </div>
+  </div>
+</div>
+<!-- .site-topbar END -->
+<div class="site-header container" id="site_header">
+  <div class="site-logo"> <a class="logo" href="index.php"><img src="images/logo.gif" /> </a> </div>
+  <div class="header-info">
+    <div class="search-section">
+      <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+            alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+	<script language="javascript">
+	function drop_cart_goods(id)
+	{
+		$.ajax({
+						type:"POST",
+						url:"flow.php?step=drop_cart_goods&id=" + id,
+						cache:false,
+						dataType:'json',     //接受数据格式
+						data:'',
+						success:function(result){
+							$('#J_miniCartList').html(result.message);
+							$('.J_cartNum').html('(' + result.goods_num + ')');
+						}
+					});
+	}
+	
+	</script>
+      <form id="J_searchForm" class="search-form clearfix" action="search.php" method="get" onSubmit="return checkSearchForm()" >
+        <input class="search-text" type="search" name="keywords" id="keyword" autocomplete="off" value="" placeholder="搜索您需要的商品" />
+        <input type="submit" class="search-btn iconfont" value="&#xe630;" />
+        <!--[if IE 6]><div class="ie6-fix"></div><![endif]-->
+        <div class="hot-words"> {foreach from=$searchkeywords item=val} <a href="search.php?keywords={$val|escape:url}">{$val}</a> {/foreach} </div>
+      </form>
+    </div>
+    <div class="cart-section"> <a id="J_miniCart" class="mini-cart" href="flow.php"><i class="iconfont">&#xe609;</i>购物车<span class="mini-cart-num J_cartNum">({insert name='cart_count'})</span></a>
+      <div id="J_miniCartList" class="mini-cart-list">
+        		{insert name='cart_data'}
+      </div>
+    </div>
+  </div>
+  <div class="header-nav clearfix">
+    <div id="J_categoryContainer" class="nav-category"> <a class="btn-category-list" href="catalog.php">全部商品分类</a>
+      <div class="nav-category-section" style="display: none;">
+        <ul class="nav-category-list">
+          <!--{foreach from=get_categories_tree() item=cat name=cat_tree}-->
+		  <li class="nav-category-item {if $smarty.foreach.cat_tree.iteration eq 0}nav-category-item-first{/if}">
+            <div class="nav-category-content"><a class="title" href="{$cat.url}">{$cat.name|escape:html}</a>
+              <div class="links">
+			  <!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+			  {if $smarty.foreach.cat_cat_id.iteration < 3}
+			  <a href="{$child.url}">{$child.name|escape:html}</a>
+			  {/if}
+			  <!--{/foreach}-->
+			  </div>
+			  {if $cat.cat_id}
+              <div class="nav-category-children">
+                <ul class="children-list">
+				<!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+                  <li><a href="{$child.url}"><img src="images/index/cat_{$child.id}.jpg" alt=""><span class="text">{$child.name|escape:html}</span></a></li>
+				  <!--{/foreach}-->
+                </ul>
+                <div class="children-special-section">
+                  <h4>热门商品</h4>
+                  <ul>
+				  <!--{foreach from=get_cat_hot_goods_2($GLOBALS['smarty']->_var['cat']['id']) item=goods_item name=best_goods}-->
+                    <li><a href="{$goods_item.url}">{$goods_item.short_name|truncate:10:"...":true} <!-- {if $goods_item.promote_price neq ""} -->{$goods_item.promote_price}<!-- {else}-->{$goods_item.shop_price}<!--{/if}--></a></li>
+                  <!--{/foreach}-->
+                  </ul>
+                </div>
+              </div>
+			  {/if}
+            </div>
+          </li>
+		  <!--{/foreach}-->
+          
+        </ul>
+      </div>
+    </div>
+    <div class="nav-main">
+      <ul class="nav-main-list J_menuNavMain clearfix">
+        <li class="nav-main-item {if $navigator_list.config.index eq 1}current{/if}"> <a  href="index.php"><span class="text">首页</span></a> </li>
+        <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+        <li class="nav-main-item {if $nav.active eq 1}current{/if}"> <a  href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}><span class="text">{$nav.name}</span><span class="arrow"></span></a> {insert name='menu_goods' url=$nav.url} </li>
+        <!-- {/foreach} -->
+      </ul>
+    </div>
+  </div>
+  <div class="open-buy-info"></div>
+</div>
+<!-- .site-header END -->

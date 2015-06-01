@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link rel="stylesheet" href="themes/xiaomi/css/base.min.css?20140528011100" />
+<link rel="stylesheet" type="text/css" href="themes/xiaomi/css/about.min.css?201404101630" />
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="container clearfix xm-about">
+  <div class="row">
+    <div class="col col-4">
+      <div class="xm-about-sidebar">
+        <div class="hd">
+          <h3 class="title">关于小米</h3>
+        </div>
+        <div class="bd">
+          <ul class="about-nav-list">
+		  <!-- {foreach from=get_cat_arts_10(2) item=article} -->
+            <li {if $article.id eq $id}class='current'{/if}	><a href="{$article.url}" title="{$article.title|escape:html}" class="f6">{$article.short_title}</a></li>
+          <!-- {/foreach} -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col col-16">
+      <div class="about-box">
+        <div class=" bd section introduction">
+          {$article.content}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

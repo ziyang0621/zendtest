@@ -1,0 +1,86 @@
+.goods-detail .goods-detail-info .span14 {
+	width:617px
+}
+.goods-detail .goods-detail-info .span6 {
+	width:310px
+}
+.goods-detail .goods-detail-info .span6 .goods-info-box {
+	padding-left:10px;
+	width:300px
+}
+.goods-detail .goods-detail-info .span6 .goods-info-box .goods-info-head {
+	padding-top:20px;
+	padding-right:0px;
+	padding-bottom:20px
+}
+.goods-detail .goods-detail-desc .span5 {
+	width:270px;
+	padding-right:10px
+}
+.goods-detail .goods-detail-desc .span5 .goods-recent .box-bd {
+	padding-left:0px
+}
+.goods-detail .goods-detail-desc .span15 {
+	width:650px
+}
+.goods-detail .goods-detail-desc .span15 .goods-detail-box .box-hd .items li {
+	width:130px
+}
+.goods-detail .goods-detail-desc .span15 .goods-detail-box .box-bd {
+	padding-left:0px;
+	padding-right:0px
+}
+.goods-detail .goods-detail-desc .span15 .goods-detail-box .box-bd p img {
+	width:645px
+}
+.goods-detail .goods-detail-desc .span15 .goods-detail-comment .box-bd .com-head .right {
+	width:205px
+}
+.goods-detail .goods-detail-desc .span15 .goods-detail-comment .box-bd .com-head .left {
+	width:220px
+}
+.goods-detail .goods-detail-desc .span15 .goods-detail-comment .box-bd .com-body {
+	padding-left:10px;
+	padding-right:10px
+}
+.goods-detail .goods-detail-desc .span15 .goods-detail-faq .box-bd {
+	padding-left:10px;
+	padding-right:10px
+}
+.goods-detail .goods-detail-desc .span15 .goods-detail-faq .box-bd .faq-input {
+	padding-left:15px
+}
+.goods-detail .goods-detail-desc .span15 .goods-detail-faq .box-bd .faq-input .input-content {
+	width:340px
+}
+.goods-detail .goods-detail-desc .span15 .goods-detail-faq .box-bd .faq-input .ques-btn {
+	width:135px;
+	margin-left:10px
+}
+.goods-detail .goods-detail-desc .span15 .common-question .question-hd .title_b {
+	width:487px
+}
+.goods-detail .goods-detail-desc .span15 .guess-u-like {
+	width:620px;
+	overflow:hidden;
+	padding-left:10px;
+	height:500px
+}
+.goods-detail .goods-detail-desc .span15 .guess-u-like .goods-list {
+	width:930px
+}
+.goods-sub-bar .span5 {
+	width:280px
+}
+.goods-sub-bar .span15 {
+	width:650px
+}
+.goods-sub-bar .goods-desc-menu .items li {
+	width:95px
+}
+.goods-sub-bar .fr .goods-add-cart-btn,.goods-sub-bar .fr .goods-over-btn {
+	width:135px
+}
+.goods-sub-bar .fr .item-action-state {
+	width:137px
+}

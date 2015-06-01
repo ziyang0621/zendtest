@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$page_title} 触屏版</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+<link href="themes/default/css/home.css" rel="stylesheet" type="text/css" />
+<link href="themes/default/css/foot.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="themes/default/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="themes/default/js/fbi.js"></script>
+<script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".row_list img").lazyload({
+          placeholder: "themes/default/images/img_bg4.png",
+          effect: "fadeIn"
+        });
+      });
+    </script>
+</head>
+<body style="">
+<div class="header">
+  <div class="left"> <a href="index.php" class="home"> <span> {$shop_name} </span> </a> </div>
+  <div class="tit">
+    <h2> <span class="title"> {$shop_name} </span> </h2>
+  </div>
+  <div class="right">
+    <ul>
+      <li class="user"> <a href="../user.php" title="个人中心"> <span class="ico"> </span> </a> </li>
+      <li class="cart"> <a href="../flow.php" title="购物车"> <span class="ico"> </span> <span id="ShoppingCartNum" class="tip hide"> </span> </a> </li>
+    </ul>
+  </div>
+</div>
+<div id="viewport" class="viewport">
+  <div class="slider card card-nomb" style="visibility: visible;">
+    <!-- banner轮播Start -->
+    <script type="text/javascript" src="themes/default/js/TouchSlide.1.1.js"></script>
+    <div id="focus" class="focus">
+      <div class="hd">
+        <ul>
+        </ul>
+      </div>
+      <div class="bd">
+        <ul>
+		{foreach from=get_advlist_by_id(1) item=ad name=index_ad}
+        <li><a href="{$ad.url}"><img src="{$ad.image}" /></a></li>
+        {/foreach}
+        </ul>
+      </div>
+    </div>
+    <script type="text/javascript">
+	TouchSlide({ 
+		slideCell:"#focus",
+		titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+		mainCell:".bd ul",
+		delayTime:600,
+		interTime:4000,
+		effect:"leftLoop", 
+		autoPlay:true,//自动播放
+		autoPage:true, //自动分页
+		switchLoad:"_src" //切换加载，真实图片路径为"_src" 
+	});
+	</script>
+    <!-- banner轮播End -->
+  </div>
+  <div class="nav-index card">
+    <ul>
+      <li> <a href="../allcate.php"> <span class="ico icon_indexn_01"> </span> <span class="t"> <span> 全部分类 </span> </span> </a> </li>
+      <li> <a href="search.php?intro=promote"> <span class="ico icon_indexn_02"> </span> <span class="t"> <span> 促销活动 </span> </span> </a> </li>
+      <li> <a href="search.php?intro=new"> <span class="ico icon_indexn_03"> </span> <span class="t"> <span> 新品上市 </span> </span> </a> </li>
+      <li> <a href="brand.php"> <span class="ico icon_indexn_04"> </span> <span class="t"> <span> 品牌馆 </span> </span> </a> </li>
+    </ul>
+    <ul>
+      <li> <a href="../flow.php"> <span class="ico icon_indexn_05"> </span> <span class="t"> <span> 购物车 </span> </span> </a> </li>
+      <li> <a href="user.php"> <span class="ico icon_indexn_06"> </span> <span class="t"> <span> 会员中心 </span> </span> </a> </li>
+	  <li> <a href="tel:4000-021-758"> <span class="ico icon_indexn_08"> </span> <span class="t"> <span> 客服中心 </span> </span> </a> </li>
+      <li> <a href="./../index.php"> <span class="ico icon_indexn_07"> </span> <span class="t"> <span> 电脑版 </span> </span> </a> </li>
+      
+    </ul>
+  </div>
+  <div class="card show_big">
+    <div class="col2">
+	{foreach from=get_advlist_by_id(2) item=ad name=index_ad}
+	{if $smarty.foreach.index_ad.iteration eq 1}
+      <div class="row2 mg-bor-right"> <a href="{$ad.url}" target="_blank" class="img"> <span class="imgurl"> <img data-original="{$ad.image}" style="display: inline;" src="{$ad.image}"> </span> </a> </div>
+	{/if}  
+	{/foreach}  
+      <div class="rows">
+	  {foreach from=get_advlist_by_id(2) item=ad name=index_ad}
+	{if $smarty.foreach.index_ad.iteration eq 2}
+        <div class="row1"> <a href="{$ad.url}" target="_blank" class="img"> <span class="imgurl"> <img data-original="{$ad.image}" style="display: inline;" src="{$ad.image}"> </span> </a> </div>
+	{/if}  
+	{/foreach}	
+	{foreach from=get_advlist_by_id(2) item=ad name=index_ad}
+	{if $smarty.foreach.index_ad.iteration eq 3}
+        <div class="row1 mg-bor-no-left mg-bor-top"> <a href="{$ad.url}" target="_blank" class="img"> <span class="imgurl"> <img data-original="{$ad.image}" style="display: inline;" src="{$ad.image}"> </span> </a> </div>
+		{/if}  
+	{/foreach}
+      </div>
+    </div>
+    <div class="col2">
+	{foreach from=get_advlist_by_id(2) item=ad name=index_ad}
+	{if $smarty.foreach.index_ad.iteration eq 4}
+      <div class="row1 mg-bor-right"> <a href="{$ad.url}" target="_blank" class="img"> <span class="imgurl"> <img data-original="{$ad.image}" style="display: inline;" src="{$ad.image}"> </span> </a> </div>
+	{/if}  
+	{/foreach}  
+	{foreach from=get_advlist_by_id(2) item=ad name=index_ad}
+	{if $smarty.foreach.index_ad.iteration eq 5}
+      <div class="row1"> <a href="{$ad.url}" target="_blank" class="img"> <span class="imgurl"> <img data-original="{$ad.image}" style="display: inline;" src="{$ad.image}"> </span> </a> </div>
+	  {/if}  
+	{/foreach} 
+    </div>
+  </div>
+  <div class="card">
+    <div class="topic">
+      <div class="bg">
+	  {foreach from=get_advlist_by_id(3) item=ad name=index_ad}
+        <div class="imgurl"> <img data-original="{$ad.image}" style="display: inline;" src="{$ad.image}"> </div>
+	  {/foreach}	
+      </div>
+      <a href="search.php?intro=promote" class="targeturl"></a>
+      <div class="item-lay">
+      	<!--{foreach from=get_cat_promote_goods(0) item=goods name=cat_goods}-->
+        <div class="item-l"> <a href="{$goods.url}"> <span class="imgurl"> <img data-original="{$goods.thumb}"
+                  style="display: inline;" src="{$goods.thumb}"> </span>
+          <p> <span>{$goods.short_name|escape:html}</span> </p>
+          <p> <span><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </p>
+          </a> </div>
+       <!--{/foreach}-->
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="topic">
+      <div class="bg">
+	  {foreach from=get_advlist_by_id(4) item=ad name=index_ad}
+        <div class="imgurl"> <img data-original="{$ad.image}" style="display: inline;" src="{$ad.image}"> </div>
+	  {/foreach}	
+      </div>
+      <a href="search.php?intro=new" class="targeturl"></a>
+      <div class="item-lay">
+      	<!--{foreach from=get_cat_new_goods(0) item=goods name=cat_goods}-->
+        <div class="item-l"> <a href="{$goods.url}"> <span class="imgurl"> <img data-original="{$goods.thumb}"
+                  style="display: inline;" src="{$goods.thumb}"> </span>
+          <p> <span>{$goods.short_name|escape:html}</span> </p>
+          <p> <span><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </p>
+          </a> </div>
+       <!--{/foreach}-->
+       
+      </div>
+    </div>
+  </div>
+  <!--第1个分类调用开始-->
+  <div class="card card-list">
+    <div class="col1 more_top"> <a href="search.php?intro=hot">
+      <span> 热销产品 </span> </a> </div>
+    <div class="col3">
+    <!--{foreach from=get_cat_hot_goods(0) item=goods name=cat_goods}-->
+      <div class="row1"> <a href="{$goods.url}"> <span class="imgurl"> <img data-original="{$goods.thumb}" style="display: inline;" src="{$goods.thumb}"> </span> <span class="p"> <span>{$goods.short_name|escape:html}</span> </span> <span class="p"> <span><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> </a> </div>
+    <!--{/foreach}-->   
+    </div>
+    <div style="clear:both;"></div>
+    <div class="col1 more"> <a href="search.php?intro=hot">
+      <span> 查看更多&nbsp;&gt;&gt; </span> </a> </div>
+  </div>
+  <!--第1个分类调用结束-->
+  <!--第2个分类调用开始-->
+    <div class="card card-list">
+    <div class="col1 more_top"> <a href="search.php?intro=best">
+      <span> 推荐产品 </span> </a> </div>
+    <div class="col3">
+    	<!--{foreach from=get_cat_best_goods(0) item=goods name=cat_goods}-->
+      <div class="row1"> <a href="{$goods.url}"> <span class="imgurl"> <img data-original="{$goods.thumb}" style="display: inline;" src="{$goods.thumb}"> </span> <span class="p"> <span>{$goods.short_name|escape:html}</span> </span> <span class="p"> <span><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> </a> </div>
+    <!--{/foreach}-->
+    </div>
+    <div style="clear:both;"></div>
+    <div class="col1 more"> <a href="search.php?intro=best">
+      <span> 查看更多&nbsp;&gt;&gt; </span> </a> </div>
+  </div>
+
+  <!--第2个分类调用结束-->
+</div>
+
+<!--页面底部-->
+﻿<!--页面底部-->
+		<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!--页面底部--><!--页面底部-->
+</body>
+</html>

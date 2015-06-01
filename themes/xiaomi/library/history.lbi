@@ -1,0 +1,45 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+.goods-recent .box-bd {
+	padding-left:0px
+}
+.goods-recent {
+	border:none
+}
+.goods-recent .box-hd .title {
+	margin:0px;
+	line-height:55px
+}
+.goods-recent .box-bd {
+	padding-bottom:35px
+}
+.goods-recent .box-bd ul li {
+	float:left;
+	_display:inline;
+	width:79px;
+	height:79px;
+	margin-right:10px;
+	margin-top:10px
+}
+.goods-recent .box-bd ul li img {
+	width:78px;
+	height:78px;
+	border:1px solid #fff
+}
+.goods-recent .box-bd ul li:hover img {
+	border:1px solid #dfdfdf
+}
+</style>
+<div class="xm-box goods-recent" id="goodsRectScan">
+    <div class="box-hd">
+      <div class="title"> 最近浏览 </div>
+    </div>
+    <div class="box-bd">
+      <ul class="clearfix">
+	  <!--{foreach from=get_history() item=item name=historys}-->
+        <li> <a href="{$item.url}" target="_blank"> <img src="{$item.goods_thumb}"> </a> </li>
+      <!--{/foreach}-->  
+      </ul>
+    </div>
+  </div>
+<div class="blank5"></div>

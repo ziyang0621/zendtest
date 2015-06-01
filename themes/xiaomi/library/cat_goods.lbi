@@ -1,0 +1,22 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="home-commented-goods home-miui-goods">
+    <div class="xm-plain-box">
+      <div class="box-hd">
+        <h3 class="title">{$goods_cat.name|escape:html}</h3>
+        <div class="more"> <a class="more-link" href="{$goods_cat.url}" target="_blank">更多<i class="iconfont">&#xe605;</i></a> </div>
+      </div>
+      <div class="box-bd">
+        <div class="xm-commented-goods-list-wrap">
+          <div class="xm-commented-goods-list clearfix">
+		  <!--{foreach from=$cat_goods item=goods}-->
+            <div class="xm-commented-goods-item">
+              <div class="item-content"> <span class="item-info"> <span class="item-title"><a href="{$goods.url}" target="_blank">{$goods.short_name|escape:html}</a></span> <span class="item-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span> </span> <span class="item-thumb"> <a href="{$goods.url}" target="_blank"><img src="{$goods.thumb}" alt=""  /></a> </span> </div>
+            </div>
+		<!--{/foreach}-->	
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

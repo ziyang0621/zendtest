@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<script src="themes/xiaomi/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="themes/xiaomi/css/goods-detail.min.css?2014050401" />
+<script type="text/javascript" src="themes/xiaomi/js/jquery.json.min.js"></script>
+
+{insert_scripts files='common.js,user.js,utils.js'} 
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<script>
+/*css*/
+if (window.screen.width < 1280)
+{	
+	document.write("<link rel='stylesheet' type='text/css' href='themes/xiaomi/css/980goods.css'>");
+}
+
+</script>
+<script type="text/javascript">
+var goodsConfig={
+    CommentTotal:"",
+    // 商品ID
+    GoodsId:"",
+    // 产品ID
+    ProductId:"",
+    GoodsName:"",
+    GoodsCommentPic:"",
+    // 货品ID
+    DataGid:"",
+    NeedChioce:"0",
+    // 二级规格名称
+    GoodsStyle:"",
+    // 是否缺货
+    IsCos : "0",
+    IsPackage : "0",
+    ScenarioId : "1"
+};
+var jiangpeiKey={
+    closeSubscribe : false,
+    closeCommentAdd : false,
+    closeGoodsGuestYouLike : false,
+    closeGoodsCommentList : false,
+    closeGoodsFaq : false
+};
+
+
+</script>
+
+<!-- S 面包屑 -->
+<div class="container breadcrumbs"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+<!-- E 面包屑 -->
+<div class="goods-detail container">
+  <div class="goods-detail-info row clearfix">
+    <div class="span14 J_mi_goodsPic_block">
+      <div class="goods-pic-box  " id="J_mi_goodsPicBox">
+        <div class="goods-big-pic" > <img src="{$pictures.0.img_url}"  class="J_goodsBigPic" id="J_BigPic" /> </div>
+        <div class="goods-small-pic clearfix">
+          <ul id="goodsPicList" >
+		  <!-- {foreach from=$pictures item=picture name=pictures}-->
+            <li {if $smarty.foreach.pictures.iteration eq 1}class="current"{/if}><img src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}" data-src="{$picture.img_url}"  data-src-b="{$picture.img_url}"/></li>
+		  <!--{/foreach}-->	
+           
+          </ul>
+        </div>
+        <span class="icon-slides icon-slides-prev" title="上一张" id="goodsPicPrev">上一张</span> <span class="icon-slides icon-slides-next" title="下一张" id="goodsPicNext">下一张</span> </div>
+    </div>
+    <div class="span6 goods-info-rightbox">
+      <dl class="goods-info-box ">
+	 <form action="exchange.php?act=buy" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
+        <dt class="goods-info-head">
+          <dl>
+            <dt id="goodsName">{$goods.goods_style_name}</dt>
+			
+            
+            <dd class="goods-info-head-userfaq">
+              <ul>
+                <li class="mobile">{$goods.goods_brief}</li>
+               
+              </ul>
+            </dd>
+			<dd class="goods-info-head-price clearfix">
+			 
+			  <div class="left-part">{$lang.goods_sn}{$goods.goods_sn}</div>
+           
+			 
+			  
+            </dd>
+			<dd class="goods-info-head-price clearfix">
+			 
+			  <div class="left-part"> {$lang.exchange_integral}<b  class="J_mi_goodsPrice">{$goods.exchange_integral}</b><i></i> </div>
+              <div class="right-part"> </div>
+			 
+			  
+            </dd>
+			<style>
+		    .catt{width:85%;height:auto;overflow:hidden;padding-bottom:5px;}
+			.catt a{border: #7E7E7E 1px solid;  text-align: center; background-color: #fff; margin-
+			left:0px;margin-top:6px;padding-left: 10px;padding-right: 10px;display: block; white-space: nowrap;
+			color:#000; text-decoration:none; float:left; margin-right:5px}
+			.catt a:hover {border:#ED0036 1px solid;}
+			.catt a:focus {outline-style:none;}
+			.catt .cattsel {border:#ED0036 1px solid; background: url("themes/xiaomi/images/test.gif") no-repeat
+			bottom right; background-color:#FFFFFF}
+			.catt .cattsel a:hover {border: #ED0036 1px solid;background: url("themes/xiaomi/images/test.gif") no-
+			repeat bottom right;}
+		  </style>
+		  <!-- {foreach from=$specification item=spec key=spec_key} -->
+            <dd class="goods-info-head-colors clearfix"> <span>可选{$spec.name}：</span>
+              <div class="catt">
+			<!-- {foreach from=$spec.values item=value key=key} -->
+			<a {if $key eq 0}class="cattsel"{/if} onclick="changeAtt(this,{$value.id},{$goods.goods_id})"
+			href="javascript:;" name="{$value.id}">{$value.label}<input style="display:none"
+			id="spec_value_{$value.id}" type="radio" name="spec_{$spec_key}" value="{$value.id}" {if $key eq 0}
+			checked{/if} /></a>
+			<!-- {/foreach} -->
+			</div>
+            </dd>
+		  <!-- {/foreach} -->	
+		  <script language="javascript">
+		  
+		  function changeAtt(t,a,goods_id) {
+			t.lastChild.checked='checked';
+			for (var i = 0; i<t.parentNode.childNodes.length;i++) {
+			if (t.parentNode.childNodes[i].className == 'cattsel') {
+			t.parentNode.childNodes[i].className = '';
+			}
+			}
+			t.className = "cattsel";
+
+			
+			}
+		  </script>
+		  
+			<input type="hidden" name="goods_id" value="{$goods.goods_id}" />
+            <dd class="goods-info-head-cart" id="goodsDetailBtnBox"> <a href="javascript:ECS_FORMBUY.submit()" id="goodsDetailAddCartBtn" class="btn btn-primary goods-add-cart-btn"> <i class="iconfont ">&#xe624;</i>{$lang.exchange_goods}</a> </dd>
+          </dl>
+        </dt>
+	  </form>	
+        <dd class="goods-info-head-intro"> </dd>
+        <dd class="goods-info-foot"> <span class="iconfont">&#xe602;</span> <a href="category.php?id={$goods.cat_id}">查看更多{insert name='cat_name' id=$goods.cat_id}</a> </dd>
+      </dl>
+    </div>
+	
+	
+  </div>
+  
+  <div class="row goods-detail-desc">
+    
+    <!--S left side-->
+    <div class="span5">
+  <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+  
+</div>
+    <!--E left side-->
+    <div class="span15">
+      <!-- 商品描述 -->
+      <div class="xm-box  goods-detail-box " id="goodsDetail">
+        <div class="box-hd">
+          <ul class="items clearfix J_pro_related_btns">
+            <li class="current"> <a href="#goodsDesc">详细信息</a> </li>
+            <li> <a href="#goodsParam">规格参数</a> </li>
+         
+          </ul>
+        </div>
+        <div class="box-bd" id="goodsDesc">
+          
+		  {$goods.goods_desc}
+		  
+        </div>
+      </div>
+      <!-- 商品描述 END-->
+      <!--S 规格-->
+      <div class="xm-box goods-detail-standard" id="goodsParam">
+        <div class="box-hd">
+          <div class="title"> 规格参数 </div>
+        </div>
+        <div class="box-bd">
+          <table>
+            <thead>
+            </thead>
+            <tbody>
+			<!-- {foreach from=$properties item=property_group key=key} -->
+			<!-- {foreach from=$property_group item=property} -->
+              <tr>
+                <th >{$property.name|escape:html}</th>
+                <td >{$property.value}</td>
+              </tr>
+            <!-- {/foreach}-->
+        <!-- {/foreach}-->  
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+<!-- 跟随 导航 -->
+<div class="goods-sub-bar " id="goodsSubBar">
+  <div class="container">
+    <div class="row">
+      <div class="span5">
+        <dl class="goods-sub-bar-info clearfix">
+          <dt><img src="{$pictures.0.thumb_url}"></dt>
+          <dd> <strong>{$goods.goods_style_name}</strong>
+            <p> <em><span class="J_mi_goodsPrice">{if $goods.is_promote and $goods.gmt_end_time }{$goods.promote_price}{else}{$goods.shop_price_formated}{/if}</span></em> <del><span class="J_mi_marketPrice"></span></del> </p>
+          </dd>
+        </dl>
+      </div>
+      <div class="span15">
+        <div class="fr" id="goodsSubBarBtnBox"> <a href="javascript:ECS_FORMBUY.submit()" onclick="getmousepos(event)" class="btn btn-primary goods-add-cart-btn" id="goodsSubBarAddCartBtn"> <i class="iconfont">&#xe624;</i>{$lang.exchange_goods}</a> </div>
+        <div class="goods-desc-menu" id="goodsSubMenu">
+          <ul class="items clearfix J_pro_related_btns">
+            <li class="current"> <a href="#goodsDesc">详细信息</a> </li>
+            <li> <a href="#goodsParam">规格参数</a> </li>
+           
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="layer-goodsBackDrop hide J_mi_layer_goods" > </div>
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+<script type="text/javascript" src="themes/xiaomi/js/goodsdetail.min.js?2014042903"></script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!--搜索页-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$page_title}触屏版</title>
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="themes/default/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="themes/default/css/search_new.css" rel="stylesheet" type="text/css" />
+<link href="themes/default/css/foot.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="themes/default/css/xmapp.css"/>
+<script type="text/javascript" src="themes/default/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="themes/default/js/search.js"></script>
+<script type="text/javascript" src="themes/default/js/iscroll.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="themes/default/js/fbi.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(
+    function($){
+		$(".productlist img").lazyload({
+         placeholder : "themes/default/images/img_bg4.png",
+         effect      : "fadeIn"
+    });
+    });
+    </script>
+</head>
+<script type="text/javascript">
+	document.write('<div id="global_loading" style="width: 100%;height: 100%;position: fixed;top: 0;left: 0;background-color: #eee;z-index:999"><div style="width: 100px;height: 75px;margin:auto;top:50%;position:relative"><span style="display:block;float:left;width:32px;height:32px;background:url(themes/default/images/spacer.gif);margin-top:-5px;"></span>&nbsp;&nbsp;加载中...</div></div>');
+</script>
+<body>
+<div class="search">
+  <div class="header_03">
+    <div class="back"> <a href="index.php" class="arrow"></a> </div>
+    <div style="" class="tit">
+      <h3><!-- {if $intromode eq 'best'} -->
+         <span>{$lang.best_goods}</span>
+         <!-- {elseif $intromode eq 'new'} -->
+         <span>{$lang.new_goods}</span>
+         <!-- {elseif $intromode eq 'hot'} -->
+         <span>{$lang.hot_goods}</span>
+         <!-- {elseif $intromode eq 'promotion'} -->
+         <span>{$lang.promotion_goods}</span>
+         <!-- {else} -->
+         <span>{$lang.search_result}</span>
+         <!-- {/if} --></h3>
+    </div>
+    <div class="nav">
+      <ul>
+        <li class="cart"> <a href="flow.php">购物车</a> <span style="display:none" id="ShoppingCartNum"></span> </li>
+      </ul>
+    </div>
+  </div>
+  <!--锚点-->
+  <div class="tab">
+    <script language="javascript">
+function search_order(sort){
+	listform.sort.value = sort;
+	listform.order.value = {if $pager.search.order == 'ASC'}'DESC'{else}'ASC'{/if};
+	listform.submit();
+}
+
+</script>
+        <form action="search.php" method="post" class="sort" name="listform" id="form">
+         
+              <input type="hidden" name="page" value="{$pager.page}" />
+              <input type="hidden" name="display" value="{$pager.display}" id="display" />
+              <!--{foreach from=$pager.search key=key item=item}-->
+
+                {if $key eq 'keywords'}
+                  <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+                {else}
+                  <input type="hidden" name="{$key}" value="{$item}" />
+                {/if}
+
+              <!--{/foreach}-->
+            </form>
+<!-- 排序begin -->
+
+    <div class="paixu">
+      <div class="tab"> 
+	  <a class="time {if $pager.search.sort == 'goods_id'}on{/if}" href="javascript:search_order('goods_id');">上市{if $pager.search.sort == 'goods_id' && $pager.search.order == 'DESC'}↓{else}↑{/if}</a> 
+	  <a class="price {if $pager.search.sort == 'shop_price'}on{/if}" href="javascript:search_order('shop_price');">价格{if $pager.search.sort == 'shop_price' && $pager.search.order == 'DESC'}↓{else}↑{/if}</a> 
+	  <a class="click {if $pager.search.sort == 'click_count'}on{/if}" href="javascript:search_order('click_count');">人气{if $pager.search.sort == 'click_count' && $pager.search.order == 'DESC'}↓{else}↑{/if}</a> 
+	  </div>
+    </div>
+
+    <!-- 排序end -->
+    <div class="productlist clearfix">
+	<!-- {if $goods_list} -->
+	<!--{foreach name=goods_list from=$goods_list item=goods}--> 
+      <!-- {if $goods.goods_id} -->
+      <div class="srp j_autoResponsive_container m-ks-autoResponsive-container m-animation album" style="opacity: 1;{if $smarty.foreach.goods_list.iteration % 2 eq 1}margin-right:2%;{/if}">
+        <div data-id="36511624513" class="product">
+          <div class="pro-inner">
+            <div class="proImg-wrap"> <a  href="{$goods.url}"><img src="{$goods.goods_img}"></a> </div>
+            <div class="proInfo-wrap">
+              <div class="proTitle"> <a href="{$goods.url}">{$goods.goods_name}</a> </div>
+              <div class="proPrice"> <em><!--{if $goods.promote_price neq "" } -->{$goods.promote_price}<!--{else}-->{$goods.shop_price}<!--{/if}--></em> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	  <!--{/if}--> 
+      <!--{/foreach}--> 
+      <!--{else}--> 
+	  
+	  <!--{/if}--> 
+      
+    </div>
+    <div id="pager" class="page clearfix">
+	<!-- {if $pager.page_prev} -->
+	<a href="{$pager.page_prev}" class="perv_page">上一页</a>
+	<!-- {else} -->
+	<a class="perv_page_no">上一页</a>
+	<!-- {/if} --> 
+	<span class="cur_page">{$pager.page}/{$pager.page_count}</span> 
+	<!-- {if $pager.page_next} -->
+	<a href="{$pager.page_next}" class="next_page"><span></span>下一页</a>
+	<!-- {else} -->
+    <a class="next_page_no">下一页</a> 
+    <!-- {/if} -->
+	<br/>
+    </div>
+    <!-- 分类浏览end -->
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script>
+<script type="text/javascript">
+window.onload = function()
+{
+  //Compare.init();
+  //fixpng();
+}
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>
+  </div>
+</div>
+﻿
+<!--页面底部-->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!--页面底部-->
+<script type="text/javascript">
+		var global_loading=document.getElementById("global_loading");
+		global_loading.parentNode.removeChild(global_loading);
+</script>
+</body>
+</html>

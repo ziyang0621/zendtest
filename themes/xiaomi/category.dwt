@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<script src="themes/xiaomi/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="themes/xiaomi/css/goods-category.min.css?ver=2013120301" />
+{insert_scripts files='common.js,user.js,utils.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<script>
+/*css*/
+if (window.screen.width < 1280)
+{	
+	document.write("<link rel='stylesheet' type='text/css' href='themes/xiaomi/css/980base.css'>");
+	document.write("<link rel='stylesheet' type='text/css' href='themes/xiaomi/css/980category.css'>");
+}
+
+</script>
+<div class="container breadcrumbs"> <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+<!-- .breadcrumbs END -->
+<div class="container">
+  <div class="xm-line-box filter-box">
+    <div class="box-hd">
+      <h3 class="title">{insert name='cat_name' id=$category}</h3>
+    </div>
+    <!--{if $brands.1 || $price_grade.1 || $filter_attr_list}-->
+    <div class="box-bd">
+      <div class="filter-lists">
+        <!--{if $brands.1}-->
+        <dl class="xm-filter-list xm-filter-list-first category-filter-list clearfix">
+          <dt>{$lang.brand}：</dt>
+          <dd>
+            <ul id="typeCat" class="clearfix">
+              <!--{foreach from=$brands item=brand name=brands}-->
+              <li class="{if $smarty.foreach.brands.iteration eq 1}first{/if} {if $brand.selected}current{/if}"> <a href="{$brand.url}">{$brand.brand_name}</a> </li>
+              <!--{/foreach}-->
+            </ul>
+          </dd>
+        </dl>
+        <!--{/if}-->
+        <!--{if $price_grade.1}-->
+        <dl class="xm-filter-list  category-filter-list clearfix">
+          <dt>{$lang.price}：</dt>
+          <dd>
+            <ul id="typeAdapt" class="clearfix">
+              <!--{foreach from=$price_grade item=grade name=price_grade}-->
+              <li class="{if $smarty.foreach.price_grade.iteration eq 1}first{/if} {if $grade.selected}current{/if}"> <a href="{$grade.url}">{$grade.price_range}</a> </li>
+              <!--{/foreach}-->
+            </ul>
+          </dd>
+        </dl>
+        <!--{/if}-->
+        <!--{foreach from=$filter_attr_list item=filter_attr}-->
+        <dl class="xm-filter-list  category-filter-list clearfix">
+          <dt>{$filter_attr.filter_attr_name|escape:html}：</dt>
+          <dd>
+            <ul id="typeAdapt" class="clearfix">
+              <!--{foreach from=$filter_attr.attr_list item=attr name=filter_attr}-->
+              <li class="{if $smarty.foreach.filter_attr.iteration eq 1}first{/if} {if $attr.selected}current{/if}"> <a href="{$attr.url}">{$attr.attr_value}</a> </li>
+              <!--{/foreach}-->
+            </ul>
+          </dd>
+        </dl>
+        <!--{/foreach}-->
+      </div>
+    </div>
+    <!-- {/if} -->
+  </div>
+  <!-- #BeginLibraryItem "/library/goods_list.lbi" --><!-- #EndLibraryItem --> </div>
+<!-- #BeginLibraryItem "/library/shop_alert.lbi" --><!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- .site-footer END -->
+</body>
+</html>
